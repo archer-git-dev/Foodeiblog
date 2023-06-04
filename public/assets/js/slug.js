@@ -42,4 +42,17 @@ function translit(word){
 }
 
 
-console.log(slugify(translit('Hello world')));
+// console.log(slugify(translit('Сахар')));
+
+let inputTitle = document.querySelector('input[name="title"]');
+let inputUsername = document.querySelector('input[name="username"]');
+let inputSlug = document.querySelector('input[name="slug"]');
+
+if (inputTitle !== null) makeSlug(inputTitle);
+else if (inputUsername !== null) makeSlug(inputUsername);
+
+function makeSlug(input) {
+    input.addEventListener('input', (e) => {
+        inputSlug.value = slugify(translit(e.target.value));
+    })
+}

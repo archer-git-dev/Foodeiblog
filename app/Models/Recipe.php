@@ -13,4 +13,9 @@ class Recipe extends Model
 
     protected $table = 'recipes';
     protected $guarded = false;
+
+    public function tags() {
+        return $this->belongsToMany(Tag::class, 'recipe_tags', 'recipe_id', 'tag_id');
+    }
+
 }
