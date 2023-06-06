@@ -72,7 +72,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <input type="hidden" name="slug">
+                            <input type="hidden" name="slug" value="{{ $recipe->slug }}">
                             <input type="submit" class="btn btn-primary" value="Добавить">
                         </div>
                     </form>

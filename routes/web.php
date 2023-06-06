@@ -1,7 +1,5 @@
 <?php
 
-
-
 use Illuminate\Support\Facades\Route;
 
 // Main
@@ -10,7 +8,7 @@ use App\Http\Controllers\Main\IndexController;
 // Admin
 use App\Http\Controllers\Admin\Main\AdminMainController;
 use App\Http\Controllers\Admin\Recipe\AdminRecipeController;
-use App\Http\Controllers\Admin\Category\AdminUserController;
+use App\Http\Controllers\Admin\User\AdminUserController;
 use App\Http\Controllers\Admin\Tag\AdminTagController;
 
 
@@ -38,13 +36,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     });
 
     Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
-        Route::get('/', [AdminuserController::class, 'index'])->name('admin.user.index');
-        Route::get('/create', [AdminuserController::class, 'create'])->name('admin.user.create');
-        Route::post('/store', [AdminuserController::class, 'store'])->name('admin.user.store');
-        Route::get('/{user:slug}', [AdminuserController::class, 'show'])->name('admin.user.show');
-        Route::get('/{user:slug}/edit', [AdminuserController::class, 'edit'])->name('admin.user.edit');
-        Route::patch('/{user:slug}/', [AdminuserController::class, 'update'])->name('admin.user.update');
-        Route::delete('/{user:slug}/', [AdminuserController::class, 'delete'])->name('admin.user.delete');
+        Route::get('/', [AdminUserController::class, 'index'])->name('admin.user.index');
+        Route::get('/create', [AdminUserController::class, 'create'])->name('admin.user.create');
+        Route::post('/store', [AdminUserController::class, 'store'])->name('admin.user.store');
+        Route::get('/{user:slug}', [AdminUserController::class, 'show'])->name('admin.user.show');
+        Route::get('/{user:slug}/edit', [AdminUserController::class, 'edit'])->name('admin.user.edit');
+        Route::patch('/{user:slug}/', [AdminUserController::class, 'update'])->name('admin.user.update');
+        Route::delete('/{user:slug}/', [AdminUserController::class, 'delete'])->name('admin.user.delete');
     });
 
 

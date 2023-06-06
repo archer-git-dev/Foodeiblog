@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('avatar')->nullable()->default('avatars/avatar.png');
+            $table->enum('role', ['user', 'admin'])->default('user');
             $table->string('slug');
             $table->timestamps();
             $table->softDeletes();

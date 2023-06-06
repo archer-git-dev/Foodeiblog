@@ -26,13 +26,39 @@
                     @include('admin.includes.errors')
                 </div>
                 <div class="col-12">
-                    <form action="{{ route('admin.user.update', $user->slug) }}" method="POST" class="w-25">
+                    <form action="{{ route('admin.user.update', $user->slug) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
-                        <div class="form-group">
-                            <input type="text" value="{{ $user->username }}" name="username" class="form-control" id="title" placeholder="Имя пользователя">
+                        <div class="form-group w-25">
+                            <input type="text" value="{{ $user->username }}" name="username" class="form-control"  placeholder="Имя пользователя">
                         </div>
-                        <input type="hidden" name="slug">
+                        <div class="form-group w-25">
+                            <input type="email" value="{{ $user->email }}" name="email" class="form-control"  placeholder="E-mail пользователя">
+                        </div>
+                        <div class="form-group w-25">
+                            <label>Аватар пользователя (необязательно)</label>
+                            <div class="mb-2">
+                                <img src="{{ url('storage/' . $user->avatar) }}" alt="avatar" class="w-50">
+                            </div>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="avatar">
+                                    <label class="custom-file-label">Выберите изображение</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text">Загрузка</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group w-25">
+                            <label>Выберите роль пользователя</label>
+                            <select name="role" class="form-control">
+                                <option {{ $user->role == 'user' ? 'selected' : '' }} value="user">user</option>
+                                <option {{ $user->role == 'admin' ? 'selected' : '' }} value="admin">admin</option>
+                            </select>
+                        </div>
+                        <input type="hidden" name="slug" value="{{ $user->slug }}">
+                        <input type="hidden" name="old_avatar" value="{{ $user->avatar }}">
                         <input type="submit" class="btn btn-primary" value="Редактировать">
                     </form>
                 </div>

@@ -6,13 +6,25 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\User\StoreRequest;
 use App\Http\Requests\Admin\User\UpdateRequest;
 use App\Models\User;
+use App\Service\UserService;
+use Illuminate\Support\Facades\Hash;
 
 class AdminUserController extends Controller
 {
+
+    public $service;
+
+    public function __construct(UserService $service)
+    {
+        $this->service = $service;
+    }
+
     public function index()
     {
 
-        return view('admin.user.index');
+        $users = User::all();
+
+        return view('admin.user.index', compact('users'));
     }
 
     public function create()
@@ -23,7 +35,8 @@ class AdminUserController extends Controller
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
-        dd($data);
+
+        $this->service->store($data);
 
         return redirect()->route('admin.user.index');
     }
@@ -41,7 +54,7 @@ class AdminUserController extends Controller
     public function update(UpdateRequest $request, user $user)
     {
         $data = $request->validated();
-        dd($data);
+        $user = $this->service->update($data, $user);
 
         return redirect()->route('admin.user.show', [$user->slug]);
     }

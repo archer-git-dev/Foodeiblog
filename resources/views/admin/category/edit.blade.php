@@ -32,7 +32,7 @@
                         <div class="form-group">
                             <input type="text" value="{{ $category->title }}" name="title" class="form-control" id="title" placeholder="Название категории">
                         </div>
-                        <input type="hidden" name="slug">
+                        <input type="hidden" name="slug" value="{{ $category->slug }}">
                         <input type="submit" class="btn btn-primary" value="Редактировать">
                     </form>
                 </div>
