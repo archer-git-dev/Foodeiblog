@@ -2722,6 +2722,16 @@ ol {
 	margin-bottom: 15px;
 }
 
+input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #f4952f;
+    padding: 10px 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+}
+
 .signin__form__text form input {
 	height: 46px;
 	width: 100%;
@@ -3277,3 +3287,29 @@ ol {
 		line-height: 100px;
 	}
 }
+
+
+/*My styles*/
+
+.auth_form {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth_form button {
+    max-width: 250px;
+    width: 100%;
+}
+
+.auth_form a {
+    margin-top: 20px;
+}
+
+
+
+
+

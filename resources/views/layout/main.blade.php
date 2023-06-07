@@ -9,12 +9,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900&display=swap"
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Unna:400,700&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('assets/css/elegant-icons.css') }}" type="text/css">
@@ -103,8 +105,8 @@
                 <div class="col-lg-8 col-md-10 order-md-2 order-3">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="#">Recipes</a>
+                            <li><a href="{{ route('home') }}">Главная</a></li>
+                            <li><a href="#">Рецепты</a>
                                 <div class="header__megamenu__wrapper">
                                     <div class="header__megamenu">
                                         <div class="header__megamenu__item">
@@ -160,20 +162,16 @@
                                     </div>
                                 </div>
                             </li>
-                            <li><a href="#">Dinner</a></li>
-                            <li><a href="#">Desserts</a></li>
-                            <li class="dropdown"><a href="#">Pages</a>
-                                <ul class="dropdown__menu">
-                                    <li><a href="./categories-grid.html">Categories Grid</a></li>
-                                    <li><a href="./categories-list.html">Categories List</a></li>
-                                    <li><a href="./single-post.html">Single Post</a></li>
-                                    <li><a href="./signin.html">Sign In</a></li>
-                                    <li><a href="./404.html">404</a></li>
-                                    <li><a href="./typography.html">Typography</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./about.html">About</a></li>
-                            <li><a href="./contact.html">Contact</a></li>
+                            <li><a href="{{ route('about') }}">О нас</a></li>
+                            <li><a href="{{ route('contact') }}">Контакты</a></li>
+
+                            @guest
+                                <li><a href="{{ route('signin') }}">Войти</a></li>
+                            @endguest
+
+                            @auth
+                                <li><a href="{{ route('logout') }}">Выйти</a></li>
+                            @endauth
                         </ul>
                     </nav>
                 </div>
