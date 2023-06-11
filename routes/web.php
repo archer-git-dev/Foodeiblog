@@ -1,7 +1,5 @@
 <?php
 
-
-
 use Illuminate\Support\Facades\Route;
 
 // Main
@@ -9,6 +7,8 @@ use App\Http\Controllers\Main\IndexController;
 use App\Http\Controllers\Main\AboutController;
 use App\Http\Controllers\Main\AuthController;
 use App\Http\Controllers\Main\ContactController;
+use App\Http\Controllers\Main\RecipeController;
+use App\Http\Controllers\Main\CommentController;
 
 // Admin
 use App\Http\Controllers\Admin\Main\AdminMainController;
@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\Recipe\AdminRecipeController;
 use App\Http\Controllers\Admin\User\AdminUserController;
 use App\Http\Controllers\Admin\Category\AdminCategoryController;
 use App\Http\Controllers\Admin\Tag\AdminTagController;
+use App\Http\Controllers\Admin\Comment\AdminCommentController;
 
 
 /*
@@ -31,22 +32,31 @@ use App\Http\Controllers\Admin\Tag\AdminTagController;
 
 // Main
 Route::group(['namespace' => 'Main'], function () {
-   Route::get('/', [IndexController::class, 'index'])->name('home');
-   Route::get('/about', [AboutController::class, 'index'])->name('about');
-   Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+    Route::get('/', [IndexController::class, 'index'])->name('home');
+    Route::get('/about', [AboutController::class, 'index'])->name('about');
+    Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
-   // Auth
-   Route::get('/signin', [AuthController::class, 'signin'])->name('signin');
-   Route::get('/signup', [AuthController::class, 'signup'])->name('signup');
-   Route::post('/signin', [AuthController::class, 'login'])->name('login');
-   Route::post('/signup', [AuthController::class, 'registration'])->name('registration');
+    // Auth
+    Route::get('/signin', [AuthController::class, 'signin'])->name('signin');
+    Route::get('/signup', [AuthController::class, 'signup'])->name('signup');
+    Route::post('/signin', [AuthController::class, 'login'])->name('login');
+    Route::post('/signup', [AuthController::class, 'registration'])->name('registration');
     // Выход из профиля (logout)
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    // Recipes
+    Route::get('/recipes', [RecipeController::class, 'getAllRecipes'])->name('recipes');
+    Route::get('/recipes/{category:slug}', [RecipeController::class, 'getRecipesByCategory'])->name('recipes.category');
+    Route::get('/recipe/{recipe:slug}', [RecipeController::class, 'getRecipe'])->name('recipe');
+
+    Route::post('/recipe/{recipe:slug}/comment', [CommentController::class, 'store'])->name('recipe.comment.create');
+    Route::delete('/recipe/{comment}/delete', [CommentController::class, 'delete'])->name('recipe.comment.delete');
+
 });
 
 
 // Admin
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth','admin']], function () {
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', [AdminMainController::class, 'index'])->name('admin.home');
     });
@@ -90,5 +100,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::get('/{tag:slug}/edit', [AdminTagController::class, 'edit'])->name('admin.tag.edit');
         Route::patch('/{tag:slug}/', [AdminTagController::class, 'update'])->name('admin.tag.update');
         Route::delete('/{tag:slug}/', [AdminTagController::class, 'delete'])->name('admin.tag.delete');
+    });
+
+    Route::group(['namespace' => 'Comment', 'prefix' => 'comments'], function () {
+        Route::get('/', [AdminCommentController::class, 'index'])->name('admin.comment.index');
+        Route::patch('/{comment}/', [AdminCommentController::class, 'update'])->name('admin.comment.update');
+        Route::delete('/{comment}/', [AdminCommentController::class, 'delete'])->name('admin.comment.delete');
     });
 });

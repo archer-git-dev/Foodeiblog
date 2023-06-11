@@ -14,8 +14,16 @@ class Recipe extends Model
     protected $table = 'recipes';
     protected $guarded = false;
 
+    public function category() {
+        return $this->hasOne(Category::class, 'id', 'category_id');
+    }
+
     public function tags() {
         return $this->belongsToMany(Tag::class, 'recipe_tags', 'recipe_id', 'tag_id');
+    }
+
+    public function comments() {
+        return $this->hasMany(Comment::class, 'recipe_id', 'id');
     }
 
 }

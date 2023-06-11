@@ -11,11 +11,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumb__text">
-                            <h2>About me</h2>
-                            <div class="breadcrumb__option">
-                                <a href="#">Home</a>
-                                <span>About</span>
-                            </div>
+                            <h2>О нас</h2>
                         </div>
                     </div>
                 </div>
@@ -35,23 +31,20 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="about__right__text">
-                            <h2>Hello every one !!!</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, incididunt ut labore et dolore
-                                magna aliqua accusantium doloremque laudantium.</p>
-                            <ul>
-                                <li>Class aptent taciti sociosqu ad litora torquent per conubia nostra</li>
-                                <li>Inceptos himenaeos mauris.Integer gravida tincidunt accumsan.</li>
-                                <li>Vestibulum nulla mauris, condimentum id felis ac, volutpat volutpat mi.</li>
-                                <li>In vitae tempor velit of the impenetrable foliage.</li>
-                            </ul>
-                            <p>Vestibulum commodo nulla eu augue tincidunt rutrum. Suspendisse interdum lacus in ligula
-                                finibus luctus. Vivamus mollis libero vel orci finibus, sit amet malesuada lectus
-                                aliquam. In auctor viverra eros. Maecenas elit mi, consectetur nec, sollicitudin sed
-                                arcu. Curabitur tempor tempor pharetra ridiculus mus porta tincidunt, purus enim
-                                laoreet.</p>
+                            <h2>Добро пожаловать на Foodeiblog!</h2>
+                            <p>Наша команда страстных кулинаров и любителей еды собрала для вас самые интересные и
+                                разнообразные рецепты, чтобы помочь вам создавать восхитительные блюда и напитки прямо у
+                                себя дома.</p>
+                            <p>
+                                В нашем блоге вы найдете множество рецептов на любой вкус и на любой случай: от быстрых
+                                и простых рецептов для повседневного обеда или ужина до изысканных блюд, подходящих для
+                                особых событий и встреч с друзьями. Мы также не забываем о десертах и выпечке, предлагая
+                                сладкие угощения и восхитительные торты.
+                            </p>
+                            <p>Наши рецепты не только вкусные, но и доступны. Мы стремимся использовать легко доступные
+                                ингредиенты, чтобы вы могли готовить в любое время и без лишних затрат. Кроме того, мы
+                                предлагаем разнообразные варианты для различных диетических предпочтений, включая
+                                вегетарианскую, веганскую, безглютеновую и другие.</p>
                             <div class="about__right__text__social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>

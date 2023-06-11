@@ -13,4 +13,12 @@ class Comment extends Model
 
     protected $table = 'comments';
     protected $guarded = false;
+
+    public function user() {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    public function recipe() {
+        return $this->hasOne(Recipe::class, 'id', 'recipe_id');
+    }
 }

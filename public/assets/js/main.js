@@ -76,3 +76,95 @@
     });
 
 })(jQuery);
+
+
+// Sticky Sidebar
+
+const contentArea = document.querySelector('.content-area');
+const sideBar = document.querySelector('.sidebar__item');
+
+window.onload = () => controlSideBarFloating();
+window.onscroll = () => controlSideBarFloating();
+window.onresize = () => controlSideBarFloating();
+
+let topSpace = 10;
+let breakPoint = 992;
+let stickyClass = 'sticky-sidebar';
+let bottomFixedClass = 'bottom-fixed-sidebar';
+
+function controlSideBarFloating() {
+    let rectL = contentArea.getBoundingClientRect();
+    let rectR = sideBar.getBoundingClientRect();
+
+    if (window.innerWidth >= breakPoint) {
+        if (rectL.top - topSpace + (rectL.height - rectR.height) >= 0 && rectL.top-topSpace <= 0) {
+
+            sideBar.classList.add(stickyClass);
+            sideBar.classList.remove(bottomFixedClass);
+
+        }else if (rectL.top - topSpace + (rectL.height - rectR.height) <= 0) {
+
+            sideBar.classList.remove(stickyClass);
+            sideBar.classList.add(bottomFixedClass);
+
+        }else  {
+
+            sideBar.classList.remove(stickyClass);
+            sideBar.classList.remove(bottomFixedClass);
+
+        }
+    }else  {
+        sideBar.classList.remove(stickyClass);
+        sideBar.classList.remove(bottomFixedClass);
+    }
+}
+
+// Format Date
+
+const dateBlocks = document.querySelectorAll('.post__meta');
+const months = {
+    '01': 'Янв',
+    '02': 'Февр',
+    '03': 'Марта',
+    '04': 'Апр',
+    '05': 'Мая',
+    '06': 'Июня',
+    '07': 'Июля',
+    '08': 'Авг',
+    '09': 'Сент',
+    '10': 'Окт',
+    '11': 'Нояб',
+    '12': 'Дек',
+};
+
+
+dateBlocks.forEach(dateBlock => {
+
+    let monthNum = '';
+
+    if (dateBlock.querySelector('h4') != null) {
+        monthNum = dateBlock.querySelector('span');
+    }else {
+        monthNum = dateBlock.querySelector('p');
+    }
+
+
+    monthNum.textContent = months[monthNum.textContent];
+
+} )
+
+
+// Склонение комментариев
+
+
+const commentNums = document.querySelectorAll('.comment_num');
+
+function declOfNum(number, words) {
+    return words[(number % 100 > 4 && number % 100 < 20) ? 2 : [2, 0, 1, 1, 1, 2][(number % 10 < 5) ? Math.abs(number) % 10 : 5]];
+}
+
+let words = ['комментарий', 'комментария', 'комментариев'];
+
+commentNums.forEach(commentNum => {
+    commentNum.parentElement.textContent = commentNum.textContent + ' ' + declOfNum(Number(commentNum.textContent), words);
+})

@@ -11,11 +11,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumb__text">
-                            <h2>Contact</h2>
-                            <div class="breadcrumb__option">
-                                <a href="#">Home</a>
-                                <span>Contact</span>
-                            </div>
+                            <h2>Контакты</h2>
                         </div>
                     </div>
                 </div>
@@ -23,23 +19,23 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="contact__map">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96748.5538666784!2d-74.25209557318462!3d40.73139236772185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25370329a0e1d%3A0xe1bcdc2adcfee473!2sNewark%2C%20NJ%2C%20USA!5e0!3m2!1sen!2sbd!4v1585643782289!5m2!1sen!2sbd"
-                                height="350" style="border:0;" allowfullscreen="" aria-hidden="false"
-                                tabindex="0"></iframe>
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2243.6056729655625!2d49.12597957180043!3d55.78272017897442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x415ead0f5ef090b5%3A0x51cd1303eddbe0c6!2z0KHQutGA0YPQtNC2!5e0!3m2!1sru!2sru!4v1686464592935!5m2!1sru!2sru"
+                                width="500" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
-                        <div class="contact__widget">
+                        <div class="contact__widget" style="margin-top: 30px;">
                             <ul>
                                 <li>
                                     <i class="fa fa-map-marker"></i>
-                                    <span>John Doe, 123 Main St Chicago, IL 60626</span>
+                                    <span>ул. Островского, 79, Казань, Респ. Татарстан, 420107</span>
                                 </li>
                                 <li>
                                     <i class="fa fa-mobile"></i>
-                                    <span>Phone: 258-556-189</span>
+                                    <span>Телефон: 258-556-189</span>
                                 </li>
                                 <li>
                                     <i class="fa fa-envelope-o"></i>
-                                    <span>Email: info@greenorganic.com</span>
+                                    <span>Email: foodeiblog@gmail.com</span>
                                 </li>
                             </ul>
                         </div>
@@ -47,16 +43,16 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="contact__form">
                             <div class="contact__form__title">
-                                <h2>gET IN TOUCH</h2>
-                                <p>My experience with Realy is absolutely positive. The themes are beautifully designed
-                                    and well documented. Realy theme provides quick support.</p>
+                                <h2>СВЯЖИТЕСЬ С НАМИ</h2>
+                                <p>Вы можете оставить любой интересующий вас вопрос о нашем блоге. Ответ придет на ваш указанный почтовый ящик.</p>
+                                <p>Мы фильтруем сообщения. Вопрос должен быть корректным и по теме нашего блога. Иначе ответ не придет.</p>
                             </div>
-                            <form action="#">
-                                <input type="text" placeholder="Name">
-                                <input type="text" placeholder="Email">
-                                <input type="text" placeholder="Website">
-                                <textarea placeholder="Message"></textarea>
-                                <button type="submit" class="site-btn">Submit</button>
+                            <form action="#" method="POST">
+                                @csrf
+                                <input type="text" name="username" placeholder="Имя пользователя">
+                                <input type="text" name="email" placeholder="Email">
+                                <textarea name="text" placeholder="Ваш вопрос"></textarea>
+                                <button type="submit" class="site-btn">Отправить</button>
                             </form>
                         </div>
                     </div>
