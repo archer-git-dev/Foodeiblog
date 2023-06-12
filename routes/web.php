@@ -1,5 +1,7 @@
 <?php
 
+
+
 use Illuminate\Support\Facades\Route;
 
 // Main
@@ -9,6 +11,7 @@ use App\Http\Controllers\Main\AuthController;
 use App\Http\Controllers\Main\ContactController;
 use App\Http\Controllers\Main\RecipeController;
 use App\Http\Controllers\Main\CommentController;
+use App\Http\Controllers\Main\MessagesController;
 
 // Admin
 use App\Http\Controllers\Admin\Main\AdminMainController;
@@ -17,6 +20,8 @@ use App\Http\Controllers\Admin\User\AdminUserController;
 use App\Http\Controllers\Admin\Category\AdminCategoryController;
 use App\Http\Controllers\Admin\Tag\AdminTagController;
 use App\Http\Controllers\Admin\Comment\AdminCommentController;
+use App\Http\Controllers\Admin\Newsletter\AdminNewsletterController;
+use App\Http\Controllers\Admin\Message\AdminMessageController;
 
 
 /*
@@ -49,9 +54,15 @@ Route::group(['namespace' => 'Main'], function () {
     Route::get('/recipes/{category:slug}', [RecipeController::class, 'getRecipesByCategory'])->name('recipes.category');
     Route::get('/recipe/{recipe:slug}', [RecipeController::class, 'getRecipe'])->name('recipe');
 
+    // Comments
     Route::post('/recipe/{recipe:slug}/comment', [CommentController::class, 'store'])->name('recipe.comment.create');
     Route::delete('/recipe/{comment}/delete', [CommentController::class, 'delete'])->name('recipe.comment.delete');
 
+    // Messages
+    Route::post('/contact/message', [MessagesController::class, 'store'])->name('contact.message');
+
+    // Newsletter
+    Route::post('/newsletter', [IndexController::class, 'store'])->name('newsletter');
 });
 
 
@@ -106,5 +117,19 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::get('/', [AdminCommentController::class, 'index'])->name('admin.comment.index');
         Route::patch('/{comment}/', [AdminCommentController::class, 'update'])->name('admin.comment.update');
         Route::delete('/{comment}/', [AdminCommentController::class, 'delete'])->name('admin.comment.delete');
+    });
+
+    Route::group(['namespace' => 'Message', 'prefix' => 'messages'], function () {
+        Route::get('/', [AdminMessageController::class, 'index'])->name('admin.message.index');
+        Route::get('/{message}/edit', [AdminMessageController::class, 'edit'])->name('admin.message.edit');
+        Route::patch('/{message}/edit', [AdminMessageController::class, 'update'])->name('admin.message.update');
+        Route::delete('/{message}/delete', [AdminMessageController::class, 'delete'])->name('admin.message.delete');
+    });
+
+    Route::group(['namespace' => 'Newsletter', 'prefix' => 'newsletters'], function () {
+        Route::get('/', [AdminNewsLetterController::class, 'index'])->name('admin.newsletter.index');
+        Route::get('/create', [AdminNewsLetterController::class, 'create'])->name('admin.newsletter.create');
+        Route::post('/store', [AdminNewsLetterController::class, 'store'])->name('admin.newsletter.store');
+        Route::delete('/{newsletter}/', [AdminNewsLetterController::class, 'delete'])->name('admin.newsletter.delete');
     });
 });

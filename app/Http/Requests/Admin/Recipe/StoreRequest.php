@@ -22,7 +22,7 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|min:3',
+            'title' => 'required|string|min:3|unique:recipes,title',
             'content' => 'required|string|min:10',
             'image' => 'file',
             'category_id' => 'required|integer|exists:categories,id',
@@ -37,6 +37,7 @@ class StoreRequest extends FormRequest
         return [
             'title.required' => 'Название рецепта обязательно для заполнения',
             'title.string' => 'Название рецепта должен иметь строчный тип',
+            'title.unique' => 'Название рецепта уже существует',
             'content.required' => 'Содержимое рецепта обязательно для заполнения',
             'content.string' => 'Содержимое рецепта должен иметь строчный тип',
             'image.file' => 'Допустимы только изображения',

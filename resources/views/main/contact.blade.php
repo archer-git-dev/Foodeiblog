@@ -47,11 +47,14 @@
                                 <p>Вы можете оставить любой интересующий вас вопрос о нашем блоге. Ответ придет на ваш указанный почтовый ящик.</p>
                                 <p>Мы фильтруем сообщения. Вопрос должен быть корректным и по теме нашего блога. Иначе ответ не придет.</p>
                             </div>
-                            <form action="#" method="POST">
+
+                            @include('main.includes.errors')
+
+                            <form action="{{ route('contact.message') }}" method="POST">
                                 @csrf
-                                <input type="text" name="username" placeholder="Имя пользователя">
-                                <input type="text" name="email" placeholder="Email">
-                                <textarea name="text" placeholder="Ваш вопрос"></textarea>
+                                <input required type="text" name="username" placeholder="Имя пользователя">
+                                <input required type="email" name="email" placeholder="Email">
+                                <textarea required name="text" placeholder="Ваш вопрос"></textarea>
                                 <button type="submit" class="site-btn">Отправить</button>
                             </form>
                         </div>

@@ -63,15 +63,21 @@
             <h6>Подписаться</h6>
         </div>
         <p>Подпишитесь на нашу рассылку и получайте наши самые свежие новости прямо на свой почтовый ящик.</p>
-        <form action="#">
-            <input type="text" class="email-input" placeholder="Your email">
-            <label for="agree-check">
+
+        @include('main.includes.errors')
+
+        <form action="{{ route('newsletter') }}" method="POST">
+            @csrf
+            <input required name="email" type="email" class="email-input" placeholder="Ваш E-mail">
+            <label for="s-agree-check">
                 Я согласен с положениями и условиями
-                <input type="checkbox" id="agree-check">
+                <input required name="policy" type="checkbox" id="s-agree-check">
                 <span class="checkmark"></span>
             </label>
             <button type="submit" class="site-btn">Подписаться</button>
         </form>
+
+
     </div>
 </div>
 <!-- Humberger End -->

@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Admin\Recipe;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Recipe\StoreRequest;
 use App\Http\Requests\Admin\Recipe\UpdateRequest;
+use App\Mail\DemoMail;
 use App\Models\Category;
+use App\Models\NewsLetter;
 use App\Models\Recipe;
 use App\Models\Tag;
 use App\Service\RecipeService;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -42,6 +45,19 @@ class AdminRecipeController extends Controller
     {
         $data = $request->validated();
         $this->service->store($data);
+
+        $mailData = [
+            'title' => 'Вышел новый рецепт: ' . $data['title'],
+            'link' => 'ссылка на рецепт',
+        ];
+
+        // рассылка о выходе нового рецепта
+        $newsletters = NewsLetter::all();
+
+        foreach ($newsletters as $newsletter) {
+            Mail::to($newsletter->email)->send(new DemoMail($mailData));
+        }
+
 
         return redirect()->route('admin.recipe.index');
     }
