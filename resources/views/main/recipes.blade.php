@@ -47,7 +47,6 @@
                                                             комментариев
                                                         </li>
                                                     </ul>
-                                                    <p>{!! $recipe->content !!}</p>
                                                 </div>
                                             </div>
                                         </div>

@@ -10,17 +10,17 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-8">
                     <div class="single-post__desc">
-                        <h4>{{ $recipe->title }}</h4>
+                        <h4 style="margin-left: 15px;">{{ $recipe->title }}</h4>
                     </div>
                     <div class="single-post__more__details">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6">
+
+                            <div class="col-lg-12 mb-3">
                                 <img src="{{ url('storage/' . $recipe->image) }}" alt="">
                             </div>
-                            <div class="col-lg-6 col-md-6">
+                            <div class="col-lg-12">
                                 {!! $recipe->content !!}
                             </div>
-                        </div>
+
                     </div>
                     {{--<div class="single-post__last__text"></div>--}}
                     <div class="single-post__tags">

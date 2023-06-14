@@ -217,7 +217,6 @@
                                 <ul class="post__widget">
                                     <li><span class="comment_num">{{ count($recipes[0]->comments) }}</span> комментариев</li>
                                 </ul>
-                                <p>{!! $recipes[0]->content !!}</p>
                                 <a href="{{ route('recipe',$recipes[0]->slug) }}" class="primary-btn">Подробнее</a>
                             </div>
                         </div>
@@ -238,7 +237,6 @@
                                         <ul class="post__widget">
                                             <li><span class="comment_num">{{ count($recipes[$i]->comments) }}</span> комментариев</li>
                                         </ul>
-                                        <p>{!! $recipes[$i]->content !!}</p>
                                     </div>
                                 </div>
                                 @endfor
@@ -259,7 +257,6 @@
                                             <ul class="post__widget">
                                                 <li><span class="comment_num">{{ count($recipes[$i]->comments) }}</span> комментариев</li>
                                             </ul>
-                                            <p>{!! $recipes[$i]->content !!}</p>
                                         </div>
                                     </div>
                                 @endfor

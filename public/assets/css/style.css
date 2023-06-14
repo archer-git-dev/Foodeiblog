@@ -2069,6 +2069,7 @@ ol {
 	color: #111111;
 	text-transform: uppercase;
 	margin-bottom: 12px;
+    margin-top: 12px;
 }
 
 .single-post__more__details {
@@ -2080,9 +2081,14 @@ ol {
 }
 
 .single-post__more__details p {
-	font-size: 15px;
-	margin-bottom: 0;
+	font-size: 18px;
 }
+
+.single-post__list {
+    margin-left: 30px;
+}
+
+
 
 .single-post__last__text {
 	margin-bottom: 25px;

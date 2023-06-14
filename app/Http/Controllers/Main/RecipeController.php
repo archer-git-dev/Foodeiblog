@@ -12,7 +12,7 @@ class RecipeController extends Controller
 {
     public function getAllRecipes() {
 
-        $recipes = Recipe::paginate(1);
+        $recipes = Recipe::paginate(5);
         $categories = Category::all();
 
         return view('main.recipes', compact('recipes', 'categories'));
@@ -20,7 +20,7 @@ class RecipeController extends Controller
 
     public function getRecipesByCategory(Category $category) {
 
-        $recipes = Recipe::where('category_id', $category->id)->paginate(1);
+        $recipes = Recipe::where('category_id', $category->id)->paginate(5);
         $categories = Category::all();
 
         return view('main.recipes', compact('recipes', 'categories', 'category'));

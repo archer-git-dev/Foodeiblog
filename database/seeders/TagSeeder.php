@@ -24,6 +24,7 @@ class TagSeeder extends Seeder
             ['title' => 'Яйца', 'slug' => 'yayca'],
             ['title' => 'Молочные продукты', 'slug' => 'molochnye-produkty'],
             ['title' => 'Сахар', 'slug' => 'sahar'],
+            ['title' => 'Ягоды', 'slug' => 'yagody'],
         ];
 
         foreach ($tags as $tag) {
