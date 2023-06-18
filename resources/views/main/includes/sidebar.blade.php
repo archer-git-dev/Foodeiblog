@@ -18,7 +18,7 @@
                 @endforeach
             </ul>
         </div>
-        <div class="sidebar__subscribe__item">
+        <div class="sidebar__subscribe__item" id="newsletter">
             <div class="sidebar__item__title">
                 <h6>Подписаться</h6>
             </div>

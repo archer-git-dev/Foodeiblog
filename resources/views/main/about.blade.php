@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title', 'Fodieblog :: О нас')
+@section('title', 'Fodieblog | О нас')
 
 
 @section('content')

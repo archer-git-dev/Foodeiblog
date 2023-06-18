@@ -1,6 +1,6 @@
 @extends('admin.layout.main')
 
-@section('title', 'Admin::Recipe - read')
+@section('title', 'Admin | Recipe - read')
 
 @section('content')
 <!-- Content Wrapper. Contains page content -->

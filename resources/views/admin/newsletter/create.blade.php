@@ -1,6 +1,6 @@
 @extends('admin.layout.main')
 
-@section('title', 'Admin::Newsletter - create')
+@section('title', 'Admin | Newsletter - create')
 
 @section('content')
 <!-- Content Wrapper. Contains page content -->

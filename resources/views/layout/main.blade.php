@@ -129,7 +129,7 @@
                 </div>
                 <div class="col-lg-2 col-md-1 col-6 order-md-3 order-2">
                     <div class="header__search">
-                        <i class="fa fa-search search-switch"></i>
+                        <a href="#newsletter" style="color: black"><i class="fa fa-envelope-o"></i></a>
                     </div>
                 </div>
             </div>
@@ -153,7 +153,6 @@
                     <a href="#"><i class="fa fa-twitter"></i></a>
                     <a href="#"><i class="fa fa-youtube-play"></i></a>
                     <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-envelope-o"></i></a>
                 </div>
             </div>
         </div>

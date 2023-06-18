@@ -1,6 +1,6 @@
 @extends('admin.layout.main')
 
-@section('title', 'Admin::Message - moderation')
+@section('title', 'Admin | Message - moderation')
 
 @section('content')
 <!-- Content Wrapper. Contains page content -->
