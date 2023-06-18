@@ -52,7 +52,7 @@
     @yield('content')
 
     <footer class="main-footer">
-        <strong>Admin Foodieblog</strong>
+        <strong>Admin Foodeiblog</strong>
     </footer>
 
     <!-- Control Sidebar -->

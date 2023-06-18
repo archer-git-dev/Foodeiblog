@@ -35,7 +35,7 @@
                                 </li>
                                 <li>
                                     <i class="fa fa-envelope-o"></i>
-                                    <span>Email: foodeiblog@gmail.com</span>
+                                    <span>Email: Foodeiblog@gmail.com</span>
                                 </li>
                             </ul>
                         </div>

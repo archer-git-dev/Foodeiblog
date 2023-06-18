@@ -172,7 +172,7 @@
                     <img src="{{ asset('assets/img/footer/instagram-avatar.jpg') }}" alt="">
                 </div>
                 <div class="footer__instagram__avatar--text">
-                    <h5>@ foodieblog</h5>
+                    <h5>@ Foodeiblog</h5>
                     <span>23,7k follower</span>
                 </div>
             </div>
