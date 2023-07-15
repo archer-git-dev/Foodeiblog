@@ -24,6 +24,10 @@ use App\Http\Controllers\Admin\Newsletter\AdminNewsletterController;
 use App\Http\Controllers\Admin\Message\AdminMessageController;
 
 
+
+// Parser
+use App\Http\Controllers\Main\RecipeParserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,6 +67,9 @@ Route::group(['namespace' => 'Main'], function () {
 
     // Newsletter
     Route::post('/newsletter', [IndexController::class, 'store'])->name('newsletter');
+
+    // Recipe parser
+    Route::get('parser', [RecipeParserController::class, 'collectData']);
 });
 
 

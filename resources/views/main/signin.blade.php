@@ -2,8 +2,6 @@
 
 @section('title', 'Fodieblog | Авторизация')
 
-@dd(1)
-
 @section('content')
     <section>
         <div class="container">
