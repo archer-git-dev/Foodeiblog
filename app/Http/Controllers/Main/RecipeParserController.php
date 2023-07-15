@@ -48,7 +48,7 @@ class RecipeParserController extends Controller
                 $this->collectSingleData('https://mirpovara.ru'.$link);
 
             }
-            
+
             $this->insertToTable();
 
         } catch (Throwable $e) {
