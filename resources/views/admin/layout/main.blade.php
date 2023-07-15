@@ -88,6 +88,8 @@
 
 <script src="{{ asset('assets/js/slug.js') }}"></script>
 
+<script src="{{ asset('assets/js/admin.js') }}"></script>
+
 <script>
     $(document).ready(function () {
         $('#summernote').summernote({

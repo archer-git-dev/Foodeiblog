@@ -44,6 +44,8 @@ class AdminRecipeController extends Controller
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
+
+
         $this->service->store($data);
 
         $mailData = [

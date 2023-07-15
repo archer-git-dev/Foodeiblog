@@ -253,7 +253,7 @@
 <script src="{{ asset('assets/js/jquery.slicknav.js') }}"></script>
 <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('assets/js/main.js') }}"></script>
-<script src="{{ asset('assets/js/slug.js') }}"></script>
+
 </body>
 
 </html>

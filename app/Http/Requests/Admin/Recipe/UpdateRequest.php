@@ -23,7 +23,9 @@ class UpdateRequest extends FormRequest
     {
         return [
             'title' => 'required|string|min:3',
-            'content' => 'required|string|min:10',
+            'subtitle' => 'required|string|min:3',
+            'ingredients' => 'required|string|min:3',
+            'process' => 'required|string|min:3',
             'image' => 'nullable|file',
             'category_id' => 'required|integer|exists:categories,id',
             'tag_ids' => 'required|array',
@@ -37,8 +39,15 @@ class UpdateRequest extends FormRequest
         return [
             'title.required' => 'Название рецепта обязательно для заполнения',
             'title.string' => 'Название рецепта должен иметь строчный тип',
-            'content.required' => 'Содержимое рецепта обязательно для заполнения',
-            'content.string' => 'Содержимое рецепта должен иметь строчный тип',
+            'subtitle.required' => 'Краткое описание рецепта обязательно для заполнения',
+            'subtitle.string' => 'Краткое описание рецепта должен иметь строчный тип',
+            'subtitle.min' => 'Краткое описание должно содержать не менее 3 символов',
+            'ingredients.required' => 'Ингредиенты рецепта обязательны для заполнения',
+            'ingredients.string' => 'Ингредиенты рецепта должен иметь строчный тип',
+            'ingredients.min' => 'Ингредиенты рецепта должны содержать не менее 3 символов',
+            'process.required' => 'Шаги приготовления обязательны для заполнения',
+            'process.string' => 'Шаги приготовления должны иметь строчный тип',
+            'process.min' => 'Шаги приготовления должны содержать не менее 3 символов',
             'image.file' => 'Допустимы только изображения',
             'category_id.required' => 'Необходимо выбрать категорию',
             'category_id.exists' => 'Выберите допустимую категорию',

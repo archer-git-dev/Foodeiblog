@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('content');
+            $table->text('subtitle');
+            $table->text('ingredients');
+            $table->text('process');
             $table->string('image')->nullable()->default('recipe_images/default_recipe.jpg');
             $table->string('slug');
             $table->unsignedBigInteger('category_id')->nullable();

@@ -15,9 +15,13 @@ class RecipeService
             $tagIds = $data['tag_ids'];
             unset($data['tag_ids']);
 
+
             $data['image'] = Storage::disk('public')->put('/recipe_images', $data['image']);
 
+
+
             $recipe = Recipe::firstOrCreate($data);
+
             $recipe->tags()->attach($tagIds);
 
             DB::commit();

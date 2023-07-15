@@ -52,7 +52,10 @@ if (inputTitle !== null) makeSlug(inputTitle);
 else if (inputUsername !== null) makeSlug(inputUsername);
 
 function makeSlug(input) {
+
     input.addEventListener('input', (e) => {
         inputSlug.value = slugify(translit(e.target.value));
     })
 }
+
+

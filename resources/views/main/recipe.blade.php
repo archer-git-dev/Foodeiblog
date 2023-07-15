@@ -18,7 +18,42 @@
                                 <img src="{{ url('storage/' . $recipe->image) }}" alt="">
                             </div>
                             <div class="col-lg-12">
-                                {!! $recipe->content !!}
+                                <p>
+                                    {{ $recipe->subtitle }}
+                                </p>
+                                <div class="single-post__desc">
+                                    <h4>Ингредиенты: </h4>
+                                </div>
+
+                                @php
+                                    $ingredients = preg_replace('/(&(?!.*&))/', '', $recipe->ingredients);
+                                    $ingredients = explode('&,', $ingredients);
+
+                                    $processList = preg_replace('/(&(?!.*&))/', '', $recipe->process);
+                                    $processList = explode('&,', $processList);
+                                @endphp
+
+                                <ul class="single-post__list">
+                                    @foreach($ingredients as $ingredient)
+                                    <li>
+                                        {{ $ingredient }}
+                                    </li>
+                                    @endforeach
+                                </ul>
+
+                                <div class="single-post__desc">
+                                    <h4>Процесс приготовления: </h4>
+                                </div>
+
+                                <ul class="single-post__list">
+                                    @foreach($processList as $process)
+                                        <li>
+                                            {{ $process }}
+                                        </li>
+                                    @endforeach
+                                </ul>
+
+
                             </div>
 
                     </div>
