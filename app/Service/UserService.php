@@ -69,6 +69,7 @@ class UserService
                 $data['avatar'] = Storage::disk('public')->put('/avatars', $data['avatar']);
             }
 
+
             $data['password'] = Hash::make($data['password']);
 
 

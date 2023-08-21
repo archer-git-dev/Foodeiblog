@@ -4,7 +4,7 @@ namespace App\Http\Requests\Main;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SignInRequest extends FormRequest
+class RestoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,7 +23,6 @@ class SignInRequest extends FormRequest
     {
         return [
             'email' => 'required|email',
-            'password' => ['required', 'min:6'],
         ];
     }
 
@@ -32,8 +31,6 @@ class SignInRequest extends FormRequest
         return [
             'email.required' => 'E-mail пользователя обязательно для заполнения',
             'email.email' => 'E-mail пользователя должен иметь вид E-mail',
-            'password.required' => 'Пароль пользователя обязательно для заполнения',
-            'password.min' => 'Пароль пользователя должен состоять минимум из 6 символов',
         ];
     }
 }

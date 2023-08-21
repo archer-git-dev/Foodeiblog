@@ -9,7 +9,8 @@
 </head>
 <body>
 
-@if (isset($mailData['question']))
+
+@if(isset($mailData['question']))
 
     <h1>{{ $mailData['title'] }}</h1>
 

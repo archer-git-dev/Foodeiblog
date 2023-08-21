@@ -4,7 +4,7 @@ namespace App\Http\Requests\Main;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SignInRequest extends FormRequest
+class RestorePasswordRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,18 +22,16 @@ class SignInRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|email',
-            'password' => ['required', 'min:6'],
+            'password' => ['required', 'min:6', 'same:re_password'],
         ];
     }
 
     public function messages()
     {
         return [
-            'email.required' => 'E-mail пользователя обязательно для заполнения',
-            'email.email' => 'E-mail пользователя должен иметь вид E-mail',
             'password.required' => 'Пароль пользователя обязательно для заполнения',
             'password.min' => 'Пароль пользователя должен состоять минимум из 6 символов',
+            'password.same' => 'Пароли не совпадают',
         ];
     }
 }

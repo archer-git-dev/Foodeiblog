@@ -52,6 +52,11 @@ Route::group(['namespace' => 'Main'], function () {
     Route::post('/signup', [AuthController::class, 'registration'])->name('registration');
     // Выход из профиля (logout)
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    // Забыли пароль
+    Route::get('/forget', [AuthController::class, 'forget'])->name('forget');
+    Route::post('/restore', [AuthController::class, 'restore'])->name('restore');
+    Route::get('/restore-password/{user:remember_token}', [AuthController::class, 'restorePasswordPage'])->name('restore-password-page');
+    Route::post('/restore-password/{user:remember_token}', [AuthController::class, 'restorePassword'])->name('restore-password');
 
     // Recipes
     Route::get('/recipes', [RecipeController::class, 'getAllRecipes'])->name('recipes');
