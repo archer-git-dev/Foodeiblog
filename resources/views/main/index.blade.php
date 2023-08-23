@@ -214,6 +214,7 @@
                                     <li>{{ $recipes[0]->category->title }}</li>
                                 </ul>
                                 <h3><a href="{{ route('recipe', $recipes[0]->slug) }}">{{ $recipes[0]->title }}</a></h3>
+                                <p>{{ $recipes[0]->subtitle }}</p>
                                 <ul class="post__widget">
                                     <li><span class="comment_num">{{ count($recipes[0]->comments) }}</span> комментариев</li>
                                 </ul>
@@ -234,6 +235,7 @@
                                     <div class="categories__post__item__text">
                                         <span class="post__label">{{ $recipes[$i]->category->title }}</span>
                                         <h3><a href="{{ route('recipe', $recipes[$i]->slug) }}">{{ $recipes[$i]->title }}</a></h3>
+                                        <p>{{ explode('.', $recipes[$i]->subtitle)[0] }}...</p>
                                         <ul class="post__widget">
                                             <li><span class="comment_num">{{ count($recipes[$i]->comments) }}</span> комментариев</li>
                                         </ul>
@@ -254,6 +256,7 @@
                                         <div class="categories__post__item__text">
                                             <span class="post__label">{{ $recipes[$i]->category->title }}</span>
                                             <h3><a href="{{ route('recipe', $recipes[$i]->slug) }}">{{ $recipes[$i]->title }}</a></h3>
+                                            <p>{{ explode('.', $recipes[$i]->subtitle)[0] }}...</p>
                                             <ul class="post__widget">
                                                 <li><span class="comment_num">{{ count($recipes[$i]->comments) }}</span> комментариев</li>
                                             </ul>

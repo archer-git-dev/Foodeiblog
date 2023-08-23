@@ -42,6 +42,7 @@
                                                 <div class="categories__post__item__text">
                                                     <span class="post__label">{{ $recipe->category->title }}</span>
                                                     <h3><a href="{{ route('recipe', $recipe->slug) }}">{{ $recipe->title }}</a></h3>
+                                                    <p>{{ explode('.', $recipe->subtitle)[0] }}...</p>
                                                     <ul class="post__widget">
                                                         <li><span class="comment_num">{{ count($recipe->comments) }}</span>
                                                             комментариев

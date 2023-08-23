@@ -92,7 +92,7 @@
                         <i class="fa fa-bars humberger__open"></i>
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-10 order-md-2 order-3">
+                <div class="col-lg-8 col-md-10 order-md-2 order-3" style="padding-top: 10px;">
                     <nav class="header__menu">
                         <ul>
                             <li><a href="{{ route('home') }}">Главная</a></li>
@@ -139,7 +139,7 @@
         <div class="row">
             <div class="col-lg-3 col-md-3">
                 <div class="header__btn">
-                    <a href="#" class="primary-btn">Подписаться</a>
+                    <a href="#newsletter" class="primary-btn">Подписаться</a>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
@@ -149,10 +149,8 @@
             </div>
             <div class="col-lg-3 col-md-3">
                 <div class="header__social">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-youtube-play"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/"><i class="fa fa-youtube-play"></i></a>
+                    <a href="https://vk.com/"><i class="fa fa-vk"></i></a>
                 </div>
             </div>
         </div>
@@ -167,15 +165,6 @@
 <footer class="footer">
     <div class="container-fluid">
         <div class="footer__instagram">
-            <div class="footer__instagram__avatar">
-                <div class="footer__instagram__avatar--pic">
-                    <img src="{{ asset('assets/img/footer/instagram-avatar.jpg') }}" alt="">
-                </div>
-                <div class="footer__instagram__avatar--text">
-                    <h5>@ Foodeiblog</h5>
-                    <span>23,7k follower</span>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-4 col-6">
                     <div class="footer__instagram__item set-bg"
@@ -218,11 +207,8 @@
                         дома.
                     </p>
                     <div class="footer__social">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                        <a href="#"><i class="fa fa-youtube-play"></i></a>
-                        <a href="#"><i class="fa fa-envelope-o"></i></a>
+                        <a href="https://www.youtube.com/"><i class="fa fa-youtube-play"></i></a>
+                        <a href="https://vk.com/"><i class="fa fa-vk"></i></a>
                     </div>
                 </div>
                 <div class="footer__copyright">

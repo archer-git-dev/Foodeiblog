@@ -343,7 +343,7 @@ ol {
 }
 
 .header__humberger {
-	font-size: 14px;
+	font-size: 24px;
 	color: #111111;
 	padding: 10px 0 11px;
 }
@@ -548,7 +548,7 @@ ol {
 }
 
 .header__search {
-	font-size: 14px;
+	font-size: 24px;
 	color: #111111;
 	text-align: right;
 	padding: 10px 0 11px;
