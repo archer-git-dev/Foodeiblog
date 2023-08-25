@@ -69,11 +69,6 @@
         <form action="{{ route('newsletter') }}" method="POST">
             @csrf
             <input required name="email" type="email" class="email-input" placeholder="Ваш E-mail">
-            <label for="s-agree-check">
-                Я согласен с положениями и условиями
-                <input required name="policy" type="checkbox" id="s-agree-check">
-                <span class="checkmark"></span>
-            </label>
             <button type="submit" class="site-btn">Подписаться</button>
         </form>
 
@@ -129,7 +124,7 @@
                 </div>
                 <div class="col-lg-2 col-md-1 col-6 order-md-3 order-2">
                     <div class="header__search">
-                        <a href="#newsletter" style="color: black"><i class="fa fa-envelope-o"></i></a>
+                        <i class="fa fa-search search-switch"></i>
                     </div>
                 </div>
             </div>
@@ -226,8 +221,8 @@
 <div class="search-model">
     <div class="h-100 d-flex align-items-center justify-content-center">
         <div class="search-close-switch">+</div>
-        <form class="search-model-form">
-            <input type="text" id="search-input" placeholder="Search here.....">
+        <form method="get" class="search-model-form" action="{{ route('recipes') }}">
+            <input type="text" name="q" id="search-input" placeholder="Поиск рецептов...">
         </form>
     </div>
 </div>

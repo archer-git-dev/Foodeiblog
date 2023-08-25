@@ -14,7 +14,7 @@ class IndexController extends Controller
     public function index() {
 
         $categories = Category::all();
-        $recipes = Recipe::latest()->take(9)->get();
+        $recipes = Recipe::get()->random(9);
         $popular_recipes = Recipe::get()->random(8);
 
         return view('main.index', compact('categories', 'recipes', 'popular_recipes'));
@@ -22,8 +22,6 @@ class IndexController extends Controller
 
     public function store(NewsletterRequest $request) {
         $data = $request->validated();
-
-        unset($data['policy']);
 
         NewsLetter::create($data);
 

@@ -10,13 +10,31 @@ use Illuminate\Http\Request;
 
 class RecipeController extends Controller
 {
-    public function getAllRecipes() {
+    public function getAllRecipes(Request $request) {
 
-        $recipes = Recipe::paginate(5);
+        $search = mb_strtolower($request->q);
+
+        if ($search) {
+
+            $recipes = Recipe::where(function ($query) use ($search) {
+
+                $query->where('title', 'like', "%$search%")
+                    ->orWhere('subtitle', 'like', "%$search%")
+                    ->orWhere('ingredients', 'like', "%$search%");
+
+            })->paginate(100);
+
+
+        }else {
+            $recipes = Recipe::paginate(5);
+        }
+
+
         $categories = Category::all();
 
         return view('main.recipes', compact('recipes', 'categories'));
     }
+
 
     public function getRecipesByCategory(Category $category) {
 

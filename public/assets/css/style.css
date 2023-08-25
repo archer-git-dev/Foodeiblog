@@ -293,6 +293,7 @@ ol {
 	top: 0;
 	background: #000;
 	z-index: 99999;
+    opacity: 0.9;
 }
 
 .search-model-form {

@@ -29,11 +29,6 @@
             <form action="{{ route('newsletter') }}" method="POST">
                 @csrf
                 <input required name="email" type="email" class="email-input" placeholder="Ваш E-mail">
-                <label for="s-agree-check">
-                    Я согласен с положениями и условиями
-                    <input required name="policy" type="checkbox" id="s-agree-check">
-                    <span class="checkmark"></span>
-                </label>
                 <button type="submit" class="site-btn">Подписаться</button>
             </form>
         </div>

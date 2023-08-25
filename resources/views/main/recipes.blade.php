@@ -14,56 +14,71 @@
                             <div class="content-area">
 
                                 <div class="breadcrumb__text">
-                                    <h2>Категория:
-                                        <span>
+                                    <h2>
+                                        @if (request()->q)
+                                            Поиск по запросу: <span>{{ request()->q }}</span>
+                                        @else
+                                            Категория:
+                                            <span>
                                             @if ( isset($category) )
-                                                {{ $category->title }}
-                                            @else
-                                                Все рецепты
-                                            @endif
-                                        </span>
+                                                    {{ $category->title }}
+                                                @else
+                                                    Все рецепты
+                                                @endif
+                                            </span>
+                                        @endif
+
                                     </h2>
                                 </div>
 
-
-                                @foreach($recipes as $recipe)
-                                    <div class="categories__list__post__item">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="categories__post__item__pic set-bg"
-                                                     data-setbg="{{ url('storage/' . $recipe->image) }}">
-                                                    <div class="post__meta">
-                                                        <h4>{{ date('d', strtotime($recipe->updated_at)) }}</h4>
-                                                        <span>{{ date('m', strtotime($recipe->updated_at)) }}</span>
+                                @if (count($recipes) == 0)
+                                    <h2>Рецепты не найдены...</h2>
+                                @else
+                                    @foreach($recipes as $recipe)
+                                        <div class="categories__list__post__item">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="categories__post__item__pic set-bg"
+                                                         data-setbg="{{ url('storage/' . $recipe->image) }}">
+                                                        <div class="post__meta">
+                                                            <h4>{{ date('d', strtotime($recipe->updated_at)) }}</h4>
+                                                            <span>{{ date('m', strtotime($recipe->updated_at)) }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="categories__post__item__text">
+                                                        <span class="post__label">{{ $recipe->category->title }}</span>
+                                                        <h3><a href="{{ route('recipe', $recipe->slug) }}">{{ $recipe->title }}</a></h3>
+                                                        <p>{{ explode('.', $recipe->subtitle)[0] }}...</p>
+                                                        <ul class="post__widget">
+                                                            <li><span class="comment_num">{{ count($recipe->comments) }}</span>
+                                                                комментариев
+                                                            </li>
+                                                        </ul>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="categories__post__item__text">
-                                                    <span class="post__label">{{ $recipe->category->title }}</span>
-                                                    <h3><a href="{{ route('recipe', $recipe->slug) }}">{{ $recipe->title }}</a></h3>
-                                                    <p>{{ explode('.', $recipe->subtitle)[0] }}...</p>
-                                                    <ul class="post__widget">
-                                                        <li><span class="comment_num">{{ count($recipe->comments) }}</span>
-                                                            комментариев
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                        </div>
+                                    @endforeach
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="categories__pagination">
+                                                {{ $recipes->links() }}
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
+                                @endif
 
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="categories__pagination">
-                                            {{ $recipes->links() }}
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
-                        @include('main.includes.sidebar')
+
+                        @if (count($recipes) >= 5)
+                            @include('main.includes.sidebar')
+                        @endif
+
                     </div>
                 </div>
             </div>

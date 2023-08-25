@@ -23,7 +23,6 @@ class NewsletterRequest extends FormRequest
     {
         return [
             'email' => 'required|string|email|unique:newsletters,email',
-            'policy' => 'accepted',
         ];
     }
 
@@ -34,7 +33,6 @@ class NewsletterRequest extends FormRequest
             'email.string' => 'Email должен иметь строчный тип',
             'email.email' => 'Email указан в неверном формате',
             'email.unique' => 'Email уже существует',
-            'policy.accepted' => 'Вы не указали свое согласие на обработку данных'
         ];
     }
 }

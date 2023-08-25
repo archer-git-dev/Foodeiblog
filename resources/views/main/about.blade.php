@@ -46,10 +46,8 @@
                                 предлагаем разнообразные варианты для различных диетических предпочтений, включая
                                 вегетарианскую, веганскую, безглютеновую и другие.</p>
                             <div class="about__right__text__social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-youtube-play"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="https://www.youtube.com/"><i class="fa fa-youtube-play"></i></a>
+                                <a href="https://vk.com/"><i class="fa fa-vk"></i></a>
                             </div>
                         </div>
                     </div>

@@ -63,6 +63,7 @@ Route::group(['namespace' => 'Main'], function () {
     Route::get('/recipes/{category:slug}', [RecipeController::class, 'getRecipesByCategory'])->name('recipes.category');
     Route::get('/recipe/{recipe:slug}', [RecipeController::class, 'getRecipe'])->name('recipe');
 
+
     // Comments
     Route::post('/recipe/{recipe:slug}/comment', [CommentController::class, 'store'])->name('recipe.comment.create');
     Route::delete('/recipe/{comment}/delete', [CommentController::class, 'delete'])->name('recipe.comment.delete');
