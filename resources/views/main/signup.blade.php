@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title', 'Fodieblog | Регистрация')
+@section('title', 'FoodKing Blog | Регистрация')
 
 
 @section('content')

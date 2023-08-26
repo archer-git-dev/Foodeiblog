@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title', 'Fodieblog | Контакты')
+@section('title', 'FoodKing Blog | Контакты')
 
 
 @section('content')
@@ -35,7 +35,7 @@
                                 </li>
                                 <li>
                                     <i class="fa fa-envelope-o"></i>
-                                    <span>Email: Foodeiblog@gmail.com</span>
+                                    <span>Email: FoodKing Blog@gmail.com</span>
                                 </li>
                             </ul>
                         </div>

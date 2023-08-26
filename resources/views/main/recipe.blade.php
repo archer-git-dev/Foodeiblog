@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title', 'Fodieblog | ' . $recipe->title)
+@section('title', 'FoodKing Blog | ' . $recipe->title)
 
 
 @section('content')

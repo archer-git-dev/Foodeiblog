@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title', 'Fodieblog | О нас')
+@section('title', 'FoodKing Blog | О нас')
 
 
 @section('content')
@@ -31,7 +31,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="about__right__text">
-                            <h2>Добро пожаловать на Foodeiblog!</h2>
+                            <h2>Добро пожаловать на FoodKing Blog!</h2>
                             <p>Наша команда страстных кулинаров и любителей еды собрала для вас самые интересные и
                                 разнообразные рецепты, чтобы помочь вам создавать восхитительные блюда и напитки прямо у
                                 себя дома.</p>

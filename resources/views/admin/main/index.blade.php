@@ -15,7 +15,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <h1 style="text-align: center">Добро пожаловать в Админ-панель Foodeiblog!</h1>
+            <h1 style="text-align: center">Добро пожаловать в Админ-панель FoodKing Blog!</h1>
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->

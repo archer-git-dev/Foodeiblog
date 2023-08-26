@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Foodeiblog Template">
-    <meta name="keywords" content="Foodeiblog, unica, creative, html">
+    <meta name="description" content="FoodKing Blog Template">
+    <meta name="keywords" content="FoodKing Blog, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
@@ -196,7 +196,7 @@
                         <a href="#"><img src="{{ asset('assets/img/logo.png') }}" alt=""></a>
                     </div>
                     <p>
-                        Добро пожаловать на наш Foodeiblog, место, где можно найти вдохновение и вкусные рецепты блюд и
+                        Добро пожаловать на наш FoodKing Blog, место, где можно найти вдохновение и вкусные рецепты блюд и
                         напитков! Наша команда страстных кулинаров и любителей еды собрала для вас самые интересные и
                         разнообразные рецепты, чтобы помочь вам создавать восхитительные блюда и напитки прямо у себя
                         дома.
