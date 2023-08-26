@@ -16,8 +16,8 @@
                                  data-setbg="{{ url('storage/' . $popular_recipes[0]->image) }}">
                                 <div class="hero__inside__item__text">
                                     <div class="hero__inside__item--meta post__meta">
-                                        <span>{{ date('d', strtotime($popular_recipes[0]->updated_at)) }}</span>
-                                        <p>{{ date('m', strtotime($popular_recipes[0]->updated_at)) }}</p>
+                                        <span>{{ date('d', strtotime($popular_recipes[0]->created_at)) }}</span>
+                                        <p>{{ date('m', strtotime($popular_recipes[0]->created_at)) }}</p>
                                     </div>
                                     <div class="hero__inside__item--text">
                                         <ul class="label">
@@ -38,8 +38,8 @@
                                  data-setbg="{{ url('storage/' . $popular_recipes[1]->image) }}">
                                 <div class="hero__inside__item__text">
                                     <div class="hero__inside__item--meta post__meta">
-                                        <span>{{ date('d', strtotime($popular_recipes[1]->updated_at)) }}</span>
-                                        <p>{{ date('m', strtotime($popular_recipes[1]->updated_at)) }}</p>
+                                        <span>{{ date('d', strtotime($popular_recipes[1]->created_at)) }}</span>
+                                        <p>{{ date('m', strtotime($popular_recipes[1]->created_at)) }}</p>
                                     </div>
                                     <div class="hero__inside__item--text">
                                         <ul class="label">
@@ -58,8 +58,8 @@
                                  data-setbg="{{ url('storage/' . $popular_recipes[2]->image) }}">
                                 <div class="hero__inside__item__text">
                                     <div class="hero__inside__item--meta post__meta">
-                                        <span>{{ date('d', strtotime($popular_recipes[2]->updated_at)) }}</span>
-                                        <p>{{ date('m', strtotime($popular_recipes[2]->updated_at)) }}</p>
+                                        <span>{{ date('d', strtotime($popular_recipes[2]->created_at)) }}</span>
+                                        <p>{{ date('m', strtotime($popular_recipes[2]->created_at)) }}</p>
                                     </div>
                                     <div class="hero__inside__item--text">
                                         <ul class="label">
@@ -79,8 +79,8 @@
                             <div class="hero__inside__item set-bg" data-setbg="{{ url('storage/' . $popular_recipes[3]->image) }}">
                                 <div class="hero__inside__item__text">
                                     <div class="hero__inside__item--meta post__meta">
-                                        <span>{{ date('d', strtotime($popular_recipes[3]->updated_at)) }}</span>
-                                        <p>{{ date('m', strtotime($popular_recipes[3]->updated_at)) }}</p>
+                                        <span>{{ date('d', strtotime($popular_recipes[3]->created_at)) }}</span>
+                                        <p>{{ date('m', strtotime($popular_recipes[3]->created_at)) }}</p>
                                     </div>
                                     <div class="hero__inside__item--text">
                                         <ul class="label">
@@ -107,8 +107,8 @@
                                  data-setbg="{{ url('storage/' . $popular_recipes[4]->image) }}">
                                 <div class="hero__inside__item__text">
                                     <div class="hero__inside__item--meta post__meta">
-                                        <span>{{ date('d', strtotime($popular_recipes[4]->updated_at)) }}</span>
-                                        <p>{{ date('m', strtotime($popular_recipes[4]->updated_at)) }}</p>
+                                        <span>{{ date('d', strtotime($popular_recipes[4]->created_at)) }}</span>
+                                        <p>{{ date('m', strtotime($popular_recipes[4]->created_at)) }}</p>
                                     </div>
                                     <div class="hero__inside__item--text">
                                         <ul class="label">
@@ -129,8 +129,8 @@
                                  data-setbg="{{ url('storage/' . $popular_recipes[5]->image) }}">
                                 <div class="hero__inside__item__text">
                                     <div class="hero__inside__item--meta post__meta">
-                                        <span>{{ date('d', strtotime($popular_recipes[5]->updated_at)) }}</span>
-                                        <p>{{ date('m', strtotime($popular_recipes[5]->updated_at)) }}</p>
+                                        <span>{{ date('d', strtotime($popular_recipes[5]->created_at)) }}</span>
+                                        <p>{{ date('m', strtotime($popular_recipes[5]->created_at)) }}</p>
                                     </div>
                                     <div class="hero__inside__item--text">
                                         <ul class="label">
@@ -150,8 +150,8 @@
                                  data-setbg="{{ url('storage/' . $popular_recipes[6]->image) }}">
                                 <div class="hero__inside__item__text">
                                     <div class="hero__inside__item--meta post__meta">
-                                        <span>{{ date('d', strtotime($popular_recipes[6]->updated_at)) }}</span>
-                                        <p>{{ date('m', strtotime($popular_recipes[6]->updated_at)) }}</p>
+                                        <span>{{ date('d', strtotime($popular_recipes[6]->created_at)) }}</span>
+                                        <p>{{ date('m', strtotime($popular_recipes[6]->created_at)) }}</p>
                                     </div>
                                     <div class="hero__inside__item--text">
                                         <ul class="label">
@@ -171,8 +171,8 @@
                             <div class="hero__inside__item set-bg" data-setbg="{{ url('storage/' . $popular_recipes[7]->image) }}">
                                 <div class="hero__inside__item__text">
                                     <div class="hero__inside__item--meta post__meta">
-                                        <span>{{ date('d', strtotime($popular_recipes[7]->updated_at)) }}</span>
-                                        <p>{{ date('m', strtotime($popular_recipes[7]->updated_at)) }}</p>
+                                        <span>{{ date('d', strtotime($popular_recipes[7]->created_at)) }}</span>
+                                        <p>{{ date('m', strtotime($popular_recipes[7]->created_at)) }}</p>
                                     </div>
                                     <div class="hero__inside__item--text">
                                         <ul class="label">
@@ -205,8 +205,8 @@
                             <div class="categories__post__item__pic set-bg"
                                  data-setbg="{{ url('storage/' . $recipes[0]->image) }}">
                                 <div class="post__meta">
-                                    <h4>{{ date('d', strtotime($recipes[0]->updated_at)) }}</h4>
-                                    <span>{{ date('m', strtotime($recipes[0]->updated_at)) }}</span>
+                                    <h4>{{ date('d', strtotime($recipes[0]->created_at)) }}</h4>
+                                    <span>{{ date('m', strtotime($recipes[0]->created_at)) }}</span>
                                 </div>
                             </div>
                             <div class="categories__post__item__text">
@@ -228,8 +228,8 @@
                                     <div class="categories__post__item__pic small__item set-bg"
                                          data-setbg="{{ url('storage/' . $recipes[$i]->image) }}">
                                         <div class="post__meta">
-                                            <h4>{{ date('d', strtotime($recipes[$i]->updated_at)) }}</h4>
-                                            <span>{{ date('m', strtotime($recipes[$i]->updated_at)) }}</span>
+                                            <h4>{{ date('d', strtotime($recipes[$i]->created_at)) }}</h4>
+                                            <span>{{ date('m', strtotime($recipes[$i]->created_at)) }}</span>
                                         </div>
                                     </div>
                                     <div class="categories__post__item__text">
@@ -249,8 +249,8 @@
                                         <div class="categories__post__item__pic small__item set-bg"
                                              data-setbg="{{ url('storage/' . $recipes[$i]->image) }}">
                                             <div class="post__meta">
-                                                <h4>{{ date('d', strtotime($recipes[$i]->updated_at)) }}</h4>
-                                                <span>{{ date('m', strtotime($recipes[$i]->updated_at)) }}</span>
+                                                <h4>{{ date('d', strtotime($recipes[$i]->created_at)) }}</h4>
+                                                <span>{{ date('m', strtotime($recipes[$i]->created_at)) }}</span>
                                             </div>
                                         </div>
                                         <div class="categories__post__item__text">

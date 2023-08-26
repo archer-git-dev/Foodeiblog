@@ -41,8 +41,8 @@
                                                     <div class="categories__post__item__pic set-bg"
                                                          data-setbg="{{ url('storage/' . $recipe->image) }}">
                                                         <div class="post__meta">
-                                                            <h4>{{ date('d', strtotime($recipe->updated_at)) }}</h4>
-                                                            <span>{{ date('m', strtotime($recipe->updated_at)) }}</span>
+                                                            <h4>{{ date('d', strtotime($recipe->created_at)) }}</h4>
+                                                            <span>{{ date('m', strtotime($recipe->created_at)) }}</span>
                                                         </div>
                                                     </div>
                                                 </div>

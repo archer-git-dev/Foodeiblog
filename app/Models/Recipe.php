@@ -13,6 +13,7 @@ class Recipe extends Model
 
     protected $table = 'recipes';
     protected $guarded = false;
+    public $timestamps = true;
 
     public function category() {
         return $this->hasOne(Category::class, 'id', 'category_id');

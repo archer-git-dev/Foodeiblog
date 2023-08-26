@@ -12,6 +12,17 @@ class RecipeController extends Controller
 {
     public function getAllRecipes(Request $request) {
 
+        $recipesAll = Recipe::all();
+
+        foreach ($recipesAll as $recipe) {
+
+
+            $recipe->created_at = date('Y').'-0'.rand(1, 9).'-'.rand(10, 30).' '.rand(12, 23).':'.rand(10, 59).':'.rand(10, 59);
+
+            $recipe->save();
+
+        }
+
         $search = mb_strtolower($request->q);
 
         if ($search) {

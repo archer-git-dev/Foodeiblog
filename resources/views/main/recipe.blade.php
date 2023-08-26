@@ -77,7 +77,7 @@
                                         </div>
                                         <div class="single-post__comment__item__text">
                                             <h5>{{ $comment->user->username }}</h5>
-                                            <span>{{ date('d.m.Y', strtotime($comment->updated_at)) }}</span>
+                                            <span>{{ date('d.m.Y', strtotime($comment->created_at)) }}</span>
                                             <p>{{ $comment->text }}</p>
                                         </div>
                                     </div>
