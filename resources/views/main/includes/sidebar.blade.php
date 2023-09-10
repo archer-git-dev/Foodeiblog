@@ -13,7 +13,7 @@
                 </li>
                 @foreach($categories as $category)
                     <li>
-                        <a href="{{ route('recipes.category', $category->slug) }}">{{$category->title}} <span>{{ count($category->recipes) }}</span></a>
+                        <a href="{{ route('recipes.category', $category->slug) }}">{{$category->title}} <span>{{ $category->recipe_count }}</span></a>
                     </li>
                 @endforeach
             </ul>

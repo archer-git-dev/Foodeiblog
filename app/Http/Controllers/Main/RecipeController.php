@@ -7,52 +7,39 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RecipeController extends Controller
 {
     public function getAllRecipes(Request $request) {
 
-        $recipesAll = Recipe::all();
-
-        foreach ($recipesAll as $recipe) {
-
-
-            $recipe->created_at = date('Y').'-0'.rand(1, 9).'-'.rand(10, 30).' '.rand(12, 23).':'.rand(10, 59).':'.rand(10, 59);
-
-            $recipe->save();
-
-        }
-
         $search = mb_strtolower($request->q);
 
         if ($search) {
 
-            $recipes = Recipe::where(function ($query) use ($search) {
+            $recipes = Recipe::fullCollect()->where(function ($query) use ($search) {
 
-                $query->where('title', 'like', "%$search%")
-                    ->orWhere('subtitle', 'like', "%$search%")
-                    ->orWhere('ingredients', 'like', "%$search%");
+                $query->where('recipes.title', 'like', "%$search%")
+                    ->orWhere('recipes.subtitle', 'like', "%$search%")
+                    ->orWhere('recipes.ingredients', 'like', "%$search%");
 
             })->paginate(100);
 
 
         }else {
-            $recipes = Recipe::paginate(5);
+            $recipes = Recipe::fullCollect()->paginate(5);
         }
 
 
-        $categories = Category::all();
-
-        return view('main.recipes', compact('recipes', 'categories'));
+        return view('main.recipes', compact('recipes'));
     }
 
 
     public function getRecipesByCategory(Category $category) {
 
-        $recipes = Recipe::where('category_id', $category->id)->paginate(5);
-        $categories = Category::all();
+        $recipes = Recipe::fullCollect()->where('recipes.category_id', $category->id)->paginate(5);
 
-        return view('main.recipes', compact('recipes', 'categories', 'category'));
+        return view('main.recipes', compact('recipes',  'category'));
     }
 
     public function getRecipe(Recipe $recipe) {

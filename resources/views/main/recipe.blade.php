@@ -81,14 +81,16 @@
                                             <p>{{ $comment->text }}</p>
                                         </div>
                                     </div>
-                                    @if (auth()->user()->role == 'admin' || auth()->user()->id == $comment->user->id)
-                                        <div>
-                                            <form action="{{ route('recipe.comment.delete', $comment->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Удалить</button>
-                                            </form>
-                                        </div>
+                                    @if (auth()->user())
+                                        @if (auth()->user()->role == 'admin' || auth()->user()->id == $comment->user->id)
+                                            <div>
+                                                <form action="{{ route('recipe.comment.delete', $comment->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Удалить</button>
+                                                </form>
+                                            </div>
+                                        @endif
                                     @endif
                                 </div>
                             @endforeach

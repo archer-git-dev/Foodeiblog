@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 
 class Recipe extends Model
 {
@@ -25,6 +26,13 @@ class Recipe extends Model
 
     public function comments() {
         return $this->hasMany(Comment::class, 'recipe_id', 'id');
+    }
+
+    public function scopeFullCollect($query) {
+        $query->leftJoin('comments', 'recipes.id', '=', 'comments.recipe_id')
+            ->join('categories', 'recipes.category_id', '=', 'categories.id')
+            ->select('recipes.*', 'categories.title as category_title', DB::raw('count(comments.id) as comment_count'))
+            ->groupBy('recipes.id');
     }
 
 }

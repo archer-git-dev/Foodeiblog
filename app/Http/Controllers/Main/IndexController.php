@@ -13,11 +13,11 @@ class IndexController extends Controller
 {
     public function index() {
 
-        $categories = Category::all();
-        $recipes = Recipe::get()->random(9);
-        $popular_recipes = Recipe::get()->random(8);
+        $recipes = Recipe::fullCollect()->latest()->take(9)->get();
 
-        return view('main.index', compact('categories', 'recipes', 'popular_recipes'));
+        $popular_recipes = Recipe::fullCollect()->get()->random(8);
+
+        return view('main.index', compact('recipes', 'popular_recipes'));
     }
 
     public function store(NewsletterRequest $request) {
