@@ -31,7 +31,7 @@ class Recipe extends Model
     public function scopeFullCollect($query) {
         $query->leftJoin('comments', 'recipes.id', '=', 'comments.recipe_id')
             ->join('categories', 'recipes.category_id', '=', 'categories.id')
-            ->select('recipes.*', 'categories.title as category_title', DB::raw('count(comments.id) as comment_count'))
+            ->select('recipes.*', 'categories.title as category_title', DB::raw('count(comments.text) as comment_count'))
             ->groupBy('recipes.id');
     }
 

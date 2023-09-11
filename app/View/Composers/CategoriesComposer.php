@@ -14,7 +14,7 @@ class CategoriesComposer
 
         $categories = cache()->remember('categories', now()->addMinutes(20), function () {
             return Category::join('recipes', 'categories.id', '=', 'recipes.category_id')
-                ->select('categories.title', 'categories.slug', DB::raw('count(recipes.id) as recipe_count'))
+                ->select('categories.title', 'categories.slug', DB::raw('count(recipes.title) as recipe_count'))
                 ->groupByRaw('categories.title, categories.slug')
                 ->get();
         });
