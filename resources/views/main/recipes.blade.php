@@ -55,6 +55,9 @@
                                                             <li><span class="comment_num">{{ $recipe->comment_count }}</span>
                                                                 комментариев
                                                             </li>
+                                                            <li><span>Автор: </span>
+                                                                {{ $recipe->user->username }}
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                 </div>

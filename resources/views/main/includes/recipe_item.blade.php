@@ -12,6 +12,7 @@
         <p>{{ explode('.', $recipes[$i]->subtitle)[0] }}...</p>
         <ul class="post__widget">
             <li><span class="comment_num">{{ $recipes[$i]->comment_count }}</span> комментариев</li>
+            <li>Автор: <span>{{ $recipes[$i]->user->username }}</span></li>
         </ul>
     </div>
 </div>
