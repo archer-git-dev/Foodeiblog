@@ -15,9 +15,14 @@ class RecipeService
             $tagIds = $data['tag_ids'];
             unset($data['tag_ids']);
 
-
             $data['image'] = Storage::disk('public')->put('/recipe_images', $data['image']);
 
+
+            if ( (!isset($data['is_visible'])) and (auth()->user()->role != 'admin') ) {
+                $data['is_visible'] = '0';
+            }
+
+            $data['user_id'] = auth()->user()->id;
 
 
             $recipe = Recipe::firstOrCreate($data);
@@ -35,6 +40,7 @@ class RecipeService
         try {
             DB::beginTransaction();
 
+
             $tagIds = $data['tag_ids'];
             unset($data['tag_ids']);
 
@@ -42,6 +48,11 @@ class RecipeService
                 $data['image'] = Storage::disk('public')->put('/recipe_images', $data['image']);
             }
 
+            if ( (!isset($data['is_visible'])) and (auth()->user()->role != 'admin') ) {
+                $data['is_visible'] = '0';
+            }
+
+            $data['user_id'] = auth()->user()->id;
 
             $recipe->update($data);
             // Обноваляет теги у рецепта, удаляя старые (невыбранные) и добавляя новые

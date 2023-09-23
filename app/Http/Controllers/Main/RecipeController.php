@@ -17,7 +17,7 @@ class RecipeController extends Controller
 
         if ($search) {
 
-            $recipes = Recipe::fullCollect()->where(function ($query) use ($search) {
+            $recipes = Recipe::fullCollect()->where('recipes.is_visible', '1')->where(function ($query) use ($search) {
 
                 $query->where('recipes.title', 'like', "%$search%")
                     ->orWhere('recipes.subtitle', 'like', "%$search%")
@@ -27,7 +27,7 @@ class RecipeController extends Controller
 
 
         }else {
-            $recipes = Recipe::fullCollect()->paginate(5);
+            $recipes = Recipe::fullCollect()->where('recipes.is_visible', '1')->paginate(5);
         }
 
 
@@ -37,7 +37,7 @@ class RecipeController extends Controller
 
     public function getRecipesByCategory(Category $category) {
 
-        $recipes = Recipe::fullCollect()->where('recipes.category_id', $category->id)->paginate(5);
+        $recipes = Recipe::fullCollect()->where('recipes.is_visible', '1')->where('recipes.category_id', $category->id)->paginate(5);
 
         return view('main.recipes', compact('recipes',  'category'));
     }

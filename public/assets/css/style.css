@@ -3371,3 +3371,24 @@ input[type=file]::file-selector-button {
 }
 
 
+/*Profile*/
+
+.profile_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.profile_list li a {
+    font-size: 18px;
+    color: #444444;
+}
+
+.profile_list li + li {
+    margin-top: 10px;
+}
+
+.site-btn.link {
+    color: white;
+    cursor: pointer;
+}

@@ -83,9 +83,11 @@
 const contentArea = document.querySelector('.content-area');
 const sideBar = document.querySelector('.sidebar__item');
 
-window.onload = () => controlSideBarFloating();
-window.onscroll = () => controlSideBarFloating();
-window.onresize = () => controlSideBarFloating();
+if (sideBar) {
+    window.onload = () => controlSideBarFloating();
+    window.onscroll = () => controlSideBarFloating();
+    window.onresize = () => controlSideBarFloating();
+}
 
 let topSpace = 10;
 let breakPoint = 992;

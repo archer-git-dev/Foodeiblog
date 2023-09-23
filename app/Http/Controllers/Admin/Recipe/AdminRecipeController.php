@@ -71,7 +71,6 @@ class AdminRecipeController extends Controller
 
     public function edit(Recipe $recipe)
     {
-
         $categories = Category::all();
         $tags = Tag::all();
 

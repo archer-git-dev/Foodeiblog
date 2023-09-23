@@ -1,7 +1,6 @@
 <?php
 
-
-
+use App\Http\Controllers\Main\UserController;
 use Illuminate\Support\Facades\Route;
 
 // Main
@@ -16,6 +15,7 @@ use App\Http\Controllers\Main\MessagesController;
 // Admin
 use App\Http\Controllers\Admin\Main\AdminMainController;
 use App\Http\Controllers\Admin\Recipe\AdminRecipeController;
+use App\Http\Controllers\Admin\UserRecipe\AdminUserRecipeController;
 use App\Http\Controllers\Admin\User\AdminUserController;
 use App\Http\Controllers\Admin\Category\AdminCategoryController;
 use App\Http\Controllers\Admin\Tag\AdminTagController;
@@ -44,6 +44,18 @@ Route::group(['namespace' => 'Main'], function () {
     Route::get('/', [IndexController::class, 'index'])->name('home');
     Route::get('/about', [AboutController::class, 'index'])->name('about');
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+
+    // Profile
+    Route::group(['prefix' => 'user/{user:slug}', 'middleware' => ['auth', 'is_user']], function () {
+        Route::get('/', [UserController::class, 'index'])->name('user.profile');
+        Route::get('/recipes/is-publication', [UserController::class, 'publicationRecipes'])->name('user.recipes.publication');
+        Route::get('/recipes/not-publication', [UserController::class, 'notPublicationRecipes'])->name('user.recipes.not-publication');
+        Route::get('/recipes/create', [UserController::class, 'create'])->name('user.recipes.create');
+        Route::post('/recipes/store', [UserController::class, 'store'])->name('user.recipes.store');
+        Route::get('/recipes/edit/{recipe:slug}', [UserController::class, 'edit'])->name('user.recipes.edit');
+        Route::patch('/recipes/update/{recipe:slug}', [UserController::class, 'update'])->name('user.recipes.update');
+        Route::delete('/recipes/delete/{recipe:slug}', [UserController::class, 'delete'])->name('user.recipes.delete');
+    });
 
     // Auth
     Route::get('/signin', [AuthController::class, 'signin'])->name('signin');
@@ -104,6 +116,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::get('/{recipe:slug}/edit', [AdminRecipeController::class, 'edit'])->name('admin.recipe.edit');
         Route::patch('/{recipe:slug}/', [AdminRecipeController::class, 'update'])->name('admin.recipe.update');
         Route::delete('/{recipe:slug}/', [AdminRecipeController::class, 'delete'])->name('admin.recipe.delete');
+    });
+
+    Route::group(['namespace' => 'UserRecipe', 'prefix' => 'user-recipes'], function () {
+        Route::get('/', [AdminUserRecipeController::class, 'index'])->name('admin.user-recipe.index');
+        Route::get('/{recipe:slug}', [AdminUserRecipeController::class, 'show'])->name('admin.user-recipe.show');
+        Route::post('/{recipe:slug}/published', [AdminUserRecipeController::class, 'published'])->name('admin.user-recipe.published');
+        Route::post('/{recipe:slug}/feedback', [AdminUserRecipeController::class, 'feedback'])->name('admin.user-recipe.feedback');
     });
 
     Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function () {

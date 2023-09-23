@@ -5,7 +5,7 @@
                 <h6>Категории рецептов</h6>
             </div>
             @php
-                $allRecipesCount = \Illuminate\Support\Facades\DB::table('recipes')->count()
+                $allRecipesCount = \Illuminate\Support\Facades\DB::table('recipes')->whereNull('deleted_at')->count()
             @endphp
             <ul>
                 <li>

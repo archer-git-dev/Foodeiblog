@@ -140,6 +140,7 @@
                                 <input type="hidden" name="slug" value="{{ old('slug') }}">
                                 <input type="hidden" value="{{ preg_replace('/(&(?!.*&))/', '', old('ingredients')) }}" name="ingredients" id="ingredients_collection">
                                 <input type="hidden" value="{{ preg_replace('/(&(?!.*&))/', '', old('process')) }}" name="process" id="process_collection">
+                                <input type="hidden" value="1" name="is_visible"/>
                                 <input type="submit" class="btn btn-primary" value="Добавить">
                             </div>
                         </form>

@@ -41,7 +41,8 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-outline-primary" href="{{ route('home') }}">Выйти</a>
+                    <a class="btn btn-outline-primary" href="{{ route('home') }}">Вернуться на сайт</a>
+                    <a class="btn btn-outline-primary" href="{{ route('logout') }}">Выйти из системы</a>
                 </li>
             </ul>
     </nav>

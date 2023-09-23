@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('assets/css/slicknav.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css">
+
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
 </head>
 
 <body>
@@ -52,7 +54,13 @@
             </li>
             <li><a href="{{ route('about') }}">О нас</a></li>
             <li><a href="{{ route('contact') }}">Контакты</a></li>
-            <li><a href="{{ route('signin') }}">Войти</a></li>
+            @guest
+                <li><a href="{{ route('signin') }}">Войти</a></li>
+            @endguest
+
+            @auth
+                <li><a href="@if (auth()->user()->role == 'admin') {{ route('admin.home') }} @else {{ route('user.profile', [auth()->user()->slug]) }} @endif">Профиль</a></li>
+            @endauth
         </ul>
     </nav>
     <div id="mobile-menu-wrap"></div>
@@ -115,7 +123,7 @@
                             @endguest
 
                             @auth
-                                <li><a href="{{ route('logout') }}">Выйти</a></li>
+                                <li><a href="@if (auth()->user()->role == 'admin') {{ route('admin.home') }} @else {{ route('user.profile', [auth()->user()->slug]) }} @endif">Профиль</a></li>
                             @endauth
                         </ul>
                     </nav>

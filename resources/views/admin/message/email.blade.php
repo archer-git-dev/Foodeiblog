@@ -17,6 +17,13 @@
     <p>{{ $mailData['question'] }}</p>
 
     <p>{{ $mailData['body'] }}</p>
+@elseif(isset($mailData['feedback']))
+    <h1>{{ $mailData['title'] }}</h1>
+
+    <p>
+        {{ $mailData['feedback'] }}
+    </p>
+
 @else
     <h1>{{ $mailData['title'] }}</h1>
 

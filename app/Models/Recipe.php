@@ -28,11 +28,15 @@ class Recipe extends Model
         return $this->hasMany(Comment::class, 'recipe_id', 'id');
     }
 
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
     public function scopeFullCollect($query) {
         $query->leftJoin('comments', 'recipes.id', '=', 'comments.recipe_id')
             ->join('categories', 'recipes.category_id', '=', 'categories.id')
             ->select('recipes.*', 'categories.title as category_title', DB::raw('count(comments.text) as comment_count'))
-            ->whereNull('comments.delete_at')
+            ->whereNull('comments.deleted_at')
             ->groupBy('recipes.id');
     }
 

@@ -41,4 +41,8 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
+
+    public function recipes() {
+        return $this->hasMany(Recipe::class, 'user_id', 'id');
+    }
 }
