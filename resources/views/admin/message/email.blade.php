@@ -21,7 +21,7 @@
     <h1>{{ $mailData['title'] }}</h1>
 
     <p>
-        {{ $mailData['feedback'] }}
+        {!! $mailData['feedback'] !!}
     </p>
 
 @else

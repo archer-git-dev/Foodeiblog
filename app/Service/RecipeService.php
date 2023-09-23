@@ -63,7 +63,7 @@ class RecipeService
                 $data['ingredients'] = $data['ingredients'].'&';
             }
 
-            
+
 
             $recipe->update($data);
             // Обноваляет теги у рецепта, удаляя старые (невыбранные) и добавляя новые

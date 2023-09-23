@@ -46,14 +46,14 @@ class AdminUserRecipeController extends Controller
 
         $mailData = [
             'title' => 'Вышел новый рецепт: ' . $recipe['title'],
-            'link' => 'ссылка на рецепт',
+            'link' => 'https://foodking.leonprog.ru/recipe/'.$recipe['slug'],
         ];
 
         // рассылка о выходе нового рецепта
         $newsletters = NewsLetter::all();
 
         foreach ($newsletters as $newsletter) {
-            // Mail::to($newsletter->email)->send(new DemoMail($mailData));
+            Mail::to($newsletter->email)->send(new DemoMail($mailData));
         }
 
         return redirect()->route('admin.user-recipe.index');
@@ -68,10 +68,10 @@ class AdminUserRecipeController extends Controller
 
         $mailData = [
             'title' => 'Уважаемый ' . $recipe->user->username,
-            'feedback' => 'Замечание: ' . $data['feedback']
+            'feedback' => 'Замечание:<br><p>'.$data['feedback'].'</p><p>Вы можете все исправить и отправить на проверку!</p><p><a href="https://foodking.leonprog.ru/user/'.$recipe->user->slug.'/recipes/edit/'.$recipe->slug.'"></a></p>'
         ];
 
-        // Mail::to($email)->send(new DemoMail($mailData));
+        Mail::to($email)->send(new DemoMail($mailData));
 
         return redirect()->route('admin.user-recipe.index');
 
