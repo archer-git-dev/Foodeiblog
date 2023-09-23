@@ -54,6 +54,17 @@ class RecipeService
 
             $data['user_id'] = auth()->user()->id;
 
+            // Правильная структура хранения процессов приготовления и ингредиентов
+            if (substr($data['process'], -1) != '&') {
+                $data['process'] = $data['process'].'&';
+            }
+
+            if (substr($data['ingredients'], -1) != '&') {
+                $data['ingredients'] = $data['ingredients'].'&';
+            }
+
+            
+
             $recipe->update($data);
             // Обноваляет теги у рецепта, удаляя старые (невыбранные) и добавляя новые
             $recipe->tags()->sync($tagIds);
