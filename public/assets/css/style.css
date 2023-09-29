@@ -3392,3 +3392,18 @@ input[type=file]::file-selector-button {
     color: white;
     cursor: pointer;
 }
+
+#ingredients_list li + li {
+    margin-top: 10px;
+}
+
+#process_list li + li {
+    margin-top: 10px;
+}
+
+#process_actions, #ingredients_actions {
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}

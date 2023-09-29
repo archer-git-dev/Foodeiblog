@@ -33,7 +33,7 @@
                                                       enctype="multipart/form-data">
                                                     @csrf
                                                     @method('PATCH')
-                                                    <div class="form-group w-25">
+                                                    <div class="form-group w-75">
                                                         <input type="text" value="{{$recipe->title}}" name="title" class="form-control"
                                                                id="title" placeholder="Название рецепта">
                                                     </div>
@@ -54,21 +54,25 @@
                                                         @php
                                                             $ingredients = preg_replace('/(&(?!.*&))/', '', $recipe->ingredients);;
                                                             $ingredients = explode('&,', $ingredients);
+                                                            $dataIndex = 0;
                                                         @endphp
 
-                                                        <ul id="ingredients_list" style="list-style: none; width: 250px;">
+                                                        <ul id="ingredients_list" style="list-style: none;">
                                                             @foreach($ingredients as $ingredient)
                                                                 <li class="mt-3">
-                                                                    <div class="row align-items-center ingredients">
+                                                                    <div id="ingredients_actions" class="ingredients" data-index="{{ $dataIndex }}">
                                                                         <span>{{ $ingredient }}</span>
                                                                         <div class="btn btn-warning ml-2 edit_btn"
-                                                                             onclick="deleteFromList(this, 'edit')">Редактировать
+                                                                             onclick="deleteFromList(this, 'edit')" id="edit_btn">Редактировать
                                                                         </div>
                                                                         <div class="btn btn-danger ml-2 delete_btn"
-                                                                             onclick="deleteFromList(this)">Удалить
+                                                                             onclick="deleteFromList(this)" id="delete_btn">Удалить
                                                                         </div>
                                                                     </div>
                                                                 </li>
+                                                                @php
+                                                                    $dataIndex++;
+                                                                @endphp
                                                             @endforeach
                                                         </ul>
                                                     </div>
@@ -84,27 +88,31 @@
                                                         @php
                                                             $processList = preg_replace('/(&(?!.*&))/', '', $recipe->process);
                                                             $processList = explode('&,', $processList);
+                                                            $dataIndex = 0;
                                                         @endphp
 
-                                                        <ul id="process_list" style="list-style: none; width: 250px;">
+                                                        <ul id="process_list" style="list-style: none;">
                                                             @foreach($processList as $processItem)
                                                                 <li class="mt-3">
-                                                                    <div class="row align-items-center process">
+                                                                    <div id="process_actions" class="process" data-index="{{ $dataIndex }}">
                                                                         <span>{{ $processItem }}</span>
                                                                         <div class="btn btn-warning ml-2 edit_btn"
-                                                                             onclick="deleteFromList(this, 'edit')">Редактировать
+                                                                             onclick="deleteFromList(this, 'edit')" id="edit_btn">Редактировать
                                                                         </div>
                                                                         <div class="btn btn-danger ml-2 delete_btn"
-                                                                             onclick="deleteFromList(this)">Удалить
+                                                                             onclick="deleteFromList(this)" id="delete_btn">Удалить
                                                                         </div>
                                                                     </div>
                                                                 </li>
+                                                                @php
+                                                                    $dataIndex++;
+                                                                @endphp
                                                             @endforeach
                                                         </ul>
 
 
                                                     </div>
-                                                    <div class="form-group w-50">
+                                                    <div class="form-group w-75">
                                                         <label>Добавить изображение (необязательно)</label>
                                                         <div class="mb-2">
                                                             <img src="{{ url('storage/' . $recipe->image) }}" alt="recipe_image" class="w-50">
@@ -129,7 +137,7 @@
                                                             @endforeach
                                                         </select>
                                                     </div>
-                                                    <div class="form-group w-50">
+                                                    <div class="form-group w-75">
                                                         <label>Теги</label>
                                                         <select name="tag_ids[]" class="select2" multiple="multiple"
                                                                 data-placeholder="Выберите теги" style="width: 100%;">
