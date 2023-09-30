@@ -46,7 +46,7 @@ class AdminUserRecipeController extends Controller
 
         $mailData = [
             'title' => 'Вышел новый рецепт: ' . $recipe['title'],
-            'link' => 'https://foodking.leonprog.ru/recipe/'.$recipe['slug'],
+            'link' => '<a href="https://foodking.leonprog.ru/recipe/'.$recipe['slug'].'">Перейти к рецепту</a>',
         ];
 
         // рассылка о выходе нового рецепта
