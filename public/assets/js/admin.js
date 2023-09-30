@@ -75,14 +75,15 @@ function deleteFromList(item, option = '') {
 
         process = parentDiv.querySelector('span').textContent;
 
-
-        processCollection = processCollection.filter(item => item != process);
-        processInpCollection.value = processCollection.map(item => item + '&');
-
-
         if (option) {
             processInp.value = process;
             editIndex = parentDiv.getAttribute('data-index');
+        }else {
+            processCollection = processCollection.filter(item => item != process);
+            processInpCollection.value = processCollection.map(item => item + '&');
+
+            (parentDiv.parentNode.parentNode).removeChild(parentDiv.parentNode);
+            
         }
 
     }

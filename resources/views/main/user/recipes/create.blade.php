@@ -73,7 +73,7 @@
                                                             </ul>
 
                                                         @else
-                                                            <ul id="ingredients_list" style="list-style: none; width: 250px;"></ul>
+                                                            <ul id="ingredients_list" style="list-style: none;"></ul>
                                                         @endif
 
                                                     </div>
@@ -109,7 +109,7 @@
                                                             </ul>
 
                                                         @else
-                                                            <ul id="process_list" style="list-style: none; width: 250px;"></ul>
+                                                            <ul id="process_list" style="list-style: none;"></ul>
                                                         @endif
 
 
