@@ -83,7 +83,7 @@ function deleteFromList(item, option = '') {
             processInpCollection.value = processCollection.map(item => item + '&');
 
             (parentDiv.parentNode.parentNode).removeChild(parentDiv.parentNode);
-            
+
         }
 
     }

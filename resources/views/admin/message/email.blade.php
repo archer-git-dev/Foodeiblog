@@ -27,7 +27,8 @@
 @else
     <h1>{{ $mailData['title'] }}</h1>
 
-    <a href="#">{{ $mailData['link'] }}</a>
+    {!! $mailData['link'] !!}
+    
 @endif
 
 
