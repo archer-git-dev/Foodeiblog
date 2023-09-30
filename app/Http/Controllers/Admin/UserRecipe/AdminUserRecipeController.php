@@ -68,7 +68,7 @@ class AdminUserRecipeController extends Controller
 
         $mailData = [
             'title' => 'Уважаемый ' . $recipe->user->username,
-            'feedback' => 'Замечание:<br><p>'.$data['feedback'].'</p><p>Вы можете все исправить и отправить на проверку!</p><p><a href="https://foodking.leonprog.ru/user/'.$recipe->user->slug.'/recipes/edit/'.$recipe->slug.'"></a></p>'
+            'feedback' => 'Замечание:<br><p>'.$data['feedback'].'</p><p>Вы можете все исправить и отправить на проверку!</p><p><a href="https://foodking.leonprog.ru/user/'.$recipe->user->slug.'/recipes/edit/'.$recipe->slug.'">Перейти к рецепту</a></p>'
         ];
 
         Mail::to($email)->send(new DemoMail($mailData));
