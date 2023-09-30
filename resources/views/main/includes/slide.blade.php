@@ -17,7 +17,7 @@
                                 <h4>{{ $popular_recipes[0 + $index]->title }}</h4>
                                 <ul class="widget">
                                     <li><span class="comment_num">{{ $popular_recipes[0 + $index]->comment_count }}</span> комментариев</li>
-                                    <li>Автор: <span>{{ $popular_recipes[0 + $index]->user->username }}</span></li>
+                                    <li>Автор: <span>{{ $popular_recipes[0 + $index]->user->role == 'admin' ?  'FoodKing Blog'  : $popular_recipes[0 + $index]->user->username }}</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -40,7 +40,7 @@
                                 <h4>{{ $popular_recipes[1 + $index]->title }}</h4>
                                 <ul class="widget">
                                     <li><span class="comment_num">{{ $popular_recipes[1 + $index]->comment_count }}</span> комментариев</li>
-                                    <li>Автор: <span>{{ $popular_recipes[0 + $index]->user->username }}</span></li>
+                                    <li>Автор: <span>{{ $popular_recipes[0 + $index]->user->role == 'admin' ?  'FoodKing Blog'  : $popular_recipes[0 + $index]->user->username }}</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                                 <h4>{{ $popular_recipes[2 + $index]->title }}</h4>
                                 <ul class="widget">
                                     <li><span class="comment_num">{{ $popular_recipes[2 + $index]->comment_count }}</span> комментариев</li>
-                                    <li>Автор: <span>{{ $popular_recipes[0 + $index]->user->username }}</span></li>
+                                    <li>Автор: <span>{{ $popular_recipes[0 + $index]->user->role == 'admin' ?  'FoodKing Blog'  : $popular_recipes[0 + $index]->user->username }}</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -83,7 +83,7 @@
                                 <h4>{{ $popular_recipes[3 + $index]->title }}</h4>
                                 <ul class="widget">
                                     <li><span class="comment_num">{{ $popular_recipes[3 + $index]->comment_count }}</span> комментариев</li>
-                                    <li>Автор: <span>{{ $popular_recipes[0 + $index]->user->username }}</span></li>
+                                    <li>Автор: <span>{{ $popular_recipes[0 + $index]->user->role == 'admin' ?  'FoodKing Blog'  : $popular_recipes[0 + $index]->user->username }}</span></li>
                                 </ul>
                             </div>
                         </div>

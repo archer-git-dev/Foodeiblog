@@ -45,7 +45,7 @@
                                                                 комментариев
                                                             </li>
                                                         </ul>
-                                                        <p>Автор: {{ $user->username }}</p>
+                                                        <p>Автор: {{ $user->role == 'admin' ? 'FoodKing Blog' : $user->username }}</p>
                                                         <div style="display: flex;">
                                                             <a class="site-btn link" href="{{ route('user.recipes.edit', [$user->slug, $recipe->slug]) }}">Редактировать</a>
                                                             <form style="margin-left: 10px;"  action="{{ route('user.recipes.delete', [$user->slug, $recipe->slug]) }}" method="POST">

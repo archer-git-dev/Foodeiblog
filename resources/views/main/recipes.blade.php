@@ -56,7 +56,7 @@
                                                                 комментариев
                                                             </li>
                                                             <li><span>Автор: </span>
-                                                                {{ $recipe->user->username }}
+                                                                {{ $recipe->user->role == 'admin' ? 'FoodKing Blog' : $recipe->user->username }}
                                                             </li>
                                                         </ul>
                                                     </div>

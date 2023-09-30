@@ -28,7 +28,7 @@
     <h1>{{ $mailData['title'] }}</h1>
 
     {!! $mailData['link'] !!}
-    
+
 @endif
 
 
