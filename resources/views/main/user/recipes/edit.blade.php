@@ -152,7 +152,14 @@
                                                         <input type="hidden" name="slug" value="{{ $recipe->slug }}">
                                                         <input type="hidden" value="{{ preg_replace('/(&(?!.*&))/', '', $recipe->ingredients) }}" name="ingredients" id="ingredients_collection">
                                                         <input type="hidden" value="{{ preg_replace('/(&(?!.*&))/', '', $recipe->process) }}" name="process" id="process_collection">
-                                                        <input type="submit" class="btn btn-primary" value="Добавить">
+                                                        <div class="row">
+                                                            <div class="col-3">
+                                                                <input type="submit" class="btn btn-primary" value="Отправить на редактирование">
+                                                            </div>
+                                                            <div class="col-3">
+                                                                <a href="{{ route('user.profile', auth()->user()->slug) }}" type="button" class="btn btn-block btn-primary">Назад к профилю</a>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </form>
                                             </div>
