@@ -58,7 +58,7 @@ Route::group(['namespace' => 'Main'], function () {
     });
 
     // Auth
-    Route::get('/signin', [AuthController::class, 'signin'])->name('signin');
+    Route::get('/signin/', [AuthController::class, 'signin'])->name('signin');
     Route::get('/signup', [AuthController::class, 'signup'])->name('signup');
     Route::post('/signin', [AuthController::class, 'login'])->name('login');
     Route::post('/signup', [AuthController::class, 'registration'])->name('registration');
@@ -69,6 +69,9 @@ Route::group(['namespace' => 'Main'], function () {
     Route::post('/restore', [AuthController::class, 'restore'])->name('restore');
     Route::get('/restore-password/{user:remember_token}', [AuthController::class, 'restorePasswordPage'])->name('restore-password-page');
     Route::post('/restore-password/{user:remember_token}', [AuthController::class, 'restorePassword'])->name('restore-password');
+    Route::get('/verify/', [AuthController::class, 'verify'])->name('verify.page');
+    Route::post('/verify/', [AuthController::class, 'verified'])->name('verified');
+
 
     // Recipes
     Route::get('/recipes', [RecipeController::class, 'getAllRecipes'])->name('recipes');

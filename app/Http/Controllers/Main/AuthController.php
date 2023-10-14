@@ -7,10 +7,13 @@ use App\Http\Requests\Main\RestorePasswordRequest;
 use App\Http\Requests\Main\RestoreRequest;
 use App\Http\Requests\Main\SignInRequest;
 use App\Http\Requests\Main\SignUpRequest;
+use App\Http\Requests\Main\VerifyRequest;
 use App\Mail\DemoMail;
 use App\Mail\ForgotPasswordMail;
+use App\Mail\VerifyMail;
 use App\Models\User;
 use App\Service\UserService;
+use http\Env\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -59,6 +62,22 @@ class AuthController extends Controller
 
         $data = $request->validated();
 
+        Mail::to($data['email'])->send(new VerifyMail($data));
+
+        // $this->service->registration($data);
+
+        return view('main.verify');
+    }
+
+    public function verify() {
+        return view('main.verify');
+    }
+
+    public function verified(VerifyRequest $request) {
+
+        $data = $request->validated();
+
+        $data = json_decode($data, true);
 
         $this->service->registration($data);
 
