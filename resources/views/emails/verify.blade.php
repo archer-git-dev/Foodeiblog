@@ -4,11 +4,9 @@
 
     <p>Для окончательной регистрации подтвердите свой Email:</p>
 
-    <form action="{{ route('verified') }}" method="POST">
-        @csrf
-        <input type="hidden" name="data" value="{{ json_encode($user) }}">
-        <button class="btn btn-primary">Подтвердить Email</button>
-    </form>
+    @component('mail::button', ['url' => url('verify/'.$user['remember_token'])])
+       Подтверждение пароля
+    @endcomponent
 
 
 

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class UserService
 {
@@ -22,6 +23,9 @@ class UserService
 
             $data['password'] = Hash::make($data['password']);
 
+            $data['verified'] = '1';
+
+            $data['remember_token'] = Str::random(30);
 
             User::firstOrCreate($data);
 
@@ -69,13 +73,11 @@ class UserService
                 $data['avatar'] = Storage::disk('public')->put('/avatars', $data['avatar']);
             }
 
-
             $data['password'] = Hash::make($data['password']);
 
+            $data['verified'] = '0';
 
-            $user = User::firstOrCreate($data);
-
-            Auth::login($user);
+            User::firstOrCreate($data);
 
             DB::commit();
         }catch (\Exception $exception) {

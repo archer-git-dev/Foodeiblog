@@ -62,9 +62,11 @@ class AuthController extends Controller
 
         $data = $request->validated();
 
+        $data['remember_token'] = Str::random(30);
+
         Mail::to($data['email'])->send(new VerifyMail($data));
 
-        // $this->service->registration($data);
+        $this->service->registration($data);
 
         return view('main.verify');
     }
@@ -73,13 +75,12 @@ class AuthController extends Controller
         return view('main.verify');
     }
 
-    public function verified(VerifyRequest $request) {
+    public function verified(User $user) {
 
-        $data = $request->validated();
+        $user['verified'] = '1';
+        $user->save();
 
-        $data = json_decode($data, true);
-
-        $this->service->registration($data);
+        Auth::login($user);
 
         return redirect()->route('home');
     }

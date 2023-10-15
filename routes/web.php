@@ -70,7 +70,7 @@ Route::group(['namespace' => 'Main'], function () {
     Route::get('/restore-password/{user:remember_token}', [AuthController::class, 'restorePasswordPage'])->name('restore-password-page');
     Route::post('/restore-password/{user:remember_token}', [AuthController::class, 'restorePassword'])->name('restore-password');
     Route::get('/verify/', [AuthController::class, 'verify'])->name('verify.page');
-    Route::post('/verify/', [AuthController::class, 'verified'])->name('verified');
+    Route::get('/verify/{user:remember_token}', [AuthController::class, 'verified'])->name('verified');
 
 
     // Recipes
