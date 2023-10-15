@@ -44,6 +44,12 @@ class AuthController extends Controller
         try {
             DB::beginTransaction();
 
+            $user = User::where('email', $data['email'])->where('verified', '1')->first();
+            
+            if (!$user) {
+                return back()->withErrors('Возможно вы не подтвердили свой Email')->withInput($request->all());
+            }
+
             if (!Auth::attempt($data)) {
                 return back()->withErrors('Неверно введены E-mail или пароль')->withInput($request->all());
             }

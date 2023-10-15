@@ -5,7 +5,7 @@
     <p>Для окончательной регистрации подтвердите свой Email:</p>
 
     @component('mail::button', ['url' => url('verify/'.$user['remember_token'])])
-       Подтверждение пароля
+        Подтвердить Email
     @endcomponent
 
 
