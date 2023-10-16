@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\User\StoreRequest;
 use App\Http\Requests\Admin\User\UpdateRequest;
 use App\Models\User;
 use App\Service\UserService;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AdminUserController extends Controller
@@ -22,7 +23,7 @@ class AdminUserController extends Controller
     public function index()
     {
 
-        $users = User::all();
+        $users = User::where('role', 'user')->get();
 
         return view('admin.user.index', compact('users'));
     }
@@ -64,4 +65,16 @@ class AdminUserController extends Controller
         $user->delete();
         return redirect()->route('admin.user.index');
     }
+
+    public function deleteNotVerified() {
+        $users = User::where('verified', '0')->get();
+
+        foreach ($users as $user) {
+            $user->delete();
+        }
+
+        return redirect()->route('admin.user.index');
+
+    }
+
 }

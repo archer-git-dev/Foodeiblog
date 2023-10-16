@@ -104,6 +104,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::get('/', [AdminUserController::class, 'index'])->name('admin.user.index');
         Route::get('/create', [AdminUserController::class, 'create'])->name('admin.user.create');
         Route::post('/store', [AdminUserController::class, 'store'])->name('admin.user.store');
+        Route::get('/delete-not-verified', [AdminUserController::class, 'deleteNotVerified'])->name('admin.user.not_verified');
         Route::get('/{user:slug}', [AdminUserController::class, 'show'])->name('admin.user.show');
         Route::get('/{user:slug}/edit', [AdminUserController::class, 'edit'])->name('admin.user.edit');
         Route::patch('/{user:slug}/', [AdminUserController::class, 'update'])->name('admin.user.update');

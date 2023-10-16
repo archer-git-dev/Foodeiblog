@@ -25,6 +25,9 @@
                 <div class="col-3 mb-3">
                     <a href="{{ route('admin.user.create') }}" type="button" class="btn btn-block btn-primary">Добавить</a>
                 </div>
+                <div class="col-3 mb-3">
+                    <a href="{{ route('admin.user.not_verified') }}" type="button" class="btn btn-block btn-primary">Удалить неподтвержденные аккаунты</a>
+                </div>
             </div>
             <div class="row">
                 <div class="col-6">
