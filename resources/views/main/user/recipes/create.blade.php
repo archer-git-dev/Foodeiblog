@@ -118,7 +118,7 @@
                                                         <label>Добавить изображение (необязательно)</label>
                                                         <div class="input-group">
                                                             <div class="custom-file">
-                                                                <input type="file" class="custom-file-input" name="image">
+                                                                <input type="file" class="custom-file-input" name="image" required>
                                                                 <label class="custom-file-label">Выберите изображение</label>
                                                             </div>
                                                             <div class="input-group-append">
