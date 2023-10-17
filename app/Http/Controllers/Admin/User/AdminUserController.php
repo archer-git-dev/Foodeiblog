@@ -62,7 +62,9 @@ class AdminUserController extends Controller
 
     public function delete(user $user)
     {
+
         $user->delete();
+
         return redirect()->route('admin.user.index');
     }
 
